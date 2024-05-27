@@ -5,6 +5,7 @@ import org.choongang.main.MainRouter;
 import org.choongang.template.Templates;
 
 import java.util.Scanner;
+import java.util.function.Predicate;
 
 public abstract class AbstractController implements Controller {
 
@@ -42,7 +43,20 @@ public abstract class AbstractController implements Controller {
             System.out.println("메뉴를 숫자로 입력하세요.");
         }
     }
-
+    /**
+     *
+     * @param message : 항목메세지
+     * @param predicate : 판별식
+     * @return
+     */
+    protected String promptWithValidation(String message, Predicate<String> predicate){
+        String str = null;
+        do{
+            System.out.println(message);
+            str = sc.nextLine();
+        }while (!predicate.test(str));
+        return str;
+    }
     /**
      * 템플릿 메서드 패턴 : 특정 절차가 고정 되어 있는 경우
      *
