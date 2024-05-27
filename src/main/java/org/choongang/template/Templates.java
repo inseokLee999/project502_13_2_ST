@@ -6,13 +6,16 @@ import org.choongang.template.member.JoinTpl;
 import org.choongang.template.member.LoginTpl;
 import org.choongang.template.member.MypageTpl;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Templates {
 
     private static Templates instance;
     private Map<Menu, Template> tpls;
-    private Templates(){}
+    private Templates(){
+        tpls = new HashMap<>();
+    }
 
     public static Templates getInstance(){
         if(instance == null){
