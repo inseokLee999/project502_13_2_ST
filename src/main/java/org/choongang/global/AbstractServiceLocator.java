@@ -16,7 +16,7 @@ public class AbstractServiceLocator implements ServiceLocator{
     }
 
     @Override
-    public Service find(MainMenu menu) {
+    public Service find(Menu menu) {
         return null;
     }
 }

@@ -6,7 +6,7 @@ import org.choongang.global.Service;
 import org.choongang.global.constants.MainMenu;
 import org.choongang.main.MainRouter;
 import org.choongang.main.controllers.RequestJoin;
-import org.choongang.member.Services.MemberServiceLocator;
+import org.choongang.member.services.MemberServiceLocator;
 import org.choongang.template.Templates;
 
 /**
@@ -27,12 +27,14 @@ public class JoinController extends AbstractController {
             if(!match)System.err.println("\n비밀번호가 일치하지 않습니다.");
             return match;
         });
-        String userNm = promptWithValidation("사용자 이름:",s -> !s.isBlank());
+        String userNm = promptWithValidation("사용자 이름 : ", s -> !s.isBlank());
+        String userType = promptWithValidation("사용자 타입(학생 or 관리자) : ", s -> s.equalsIgnoreCase("학생") || s.equalsIgnoreCase("관리자"));
         RequestJoin form = RequestJoin.builder()
                         .userId(userId)
                         .userPw(userPw)
                         .confirmPw(confirmPw)
                         .userNm(userNm)
+                .userNm(userType)
                         .build();
         Router router = MainRouter.getInstance();
         try {

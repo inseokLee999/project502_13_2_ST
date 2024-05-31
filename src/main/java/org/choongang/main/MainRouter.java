@@ -24,7 +24,7 @@ public class MainRouter implements Router {
         MainMenu mainMenu = (MainMenu) menu;
         Controller controller = null;
 
-        switch(menu){
+        switch(mainMenu){
             case JOIN: controller = memlocator.find(MainMenu.JOIN);break;
             case LOGIN: controller = memlocator.find(MainMenu.LOGIN);break;
             default: controller = new MainController();
@@ -36,7 +36,7 @@ public class MainRouter implements Router {
     @Override
     public void start() {
         while(true){
-            change(Menu.MAIN);//첫화면은 메인 컨트롤러 출력화면
+            change(MainMenu.MAIN);//첫화면은 메인 컨트롤러 출력화면
         }
     }
 }
