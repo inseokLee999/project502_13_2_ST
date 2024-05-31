@@ -3,7 +3,7 @@ package org.choongang.member.services;
 import org.choongang.global.AbstractServiceLocator;
 import org.choongang.global.Service;
 import org.choongang.global.ServiceLocator;
-import org.choongang.global.constants.Menu;
+import org.choongang.global.constants.MainMenu;
 
 public class MemberServiceLocator extends AbstractServiceLocator{
     public static ServiceLocator getInstance() {
@@ -14,7 +14,7 @@ public class MemberServiceLocator extends AbstractServiceLocator{
         return instance;
     }
     @Override
-    public Service find(Menu menu) {
+    public Service find(MainMenu menu) {
         Service service = services.get(menu);
         if(service!=null){
             return service;
