@@ -52,7 +52,7 @@ public abstract class AbstractController implements Controller {
     protected String promptWithValidation(String message, Predicate<String> predicate){
         String str = null;
         do{
-            System.out.println(message);
+            System.out.print(message);
             str = sc.nextLine();
         }while (!predicate.test(str));
         return str;
@@ -80,4 +80,6 @@ public abstract class AbstractController implements Controller {
         // 메뉴 컨트롤러 변경 처리 - Router
         MainRouter.getInstance().change(menu);
     }
+
+
 }
