@@ -1,6 +1,7 @@
 package org.choongang.subject.controllers;
 
 import org.choongang.global.AbstractController;
+import org.choongang.subject.entities.Subject;
 
 public class SubjectController extends AbstractController {
     @Override
@@ -28,5 +29,15 @@ public class SubjectController extends AbstractController {
         String subjectCL1 = promptWithValidation("강의분류1", s -> !s.isBlank());
         String subjectCL2 = promptWithValidation("강의분류2", s -> !s.isBlank());
         String subjectPf = promptWithValidation("학점/시간", s -> !s.isBlank());
+
+        Subject subject = Subject.builder()
+                .subName(subjectNm)
+                .subName(subjectNb)
+                .subName(subjectPn)
+                .subName(subjectTm)
+                .subName(subjectCL1)
+                .subName(subjectCL2)
+                .subName(subjectPf)
+                .build();
     }
 }

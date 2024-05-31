@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.choongang.subject.mapper.SubjectInfoMapper">
+    <resultMap id="subjectMap" type="org.choongang.subject.entities.Subject">
+        <result column="SUB_CODE" property="subCode" />
+        <result column="SUB_NAME" property="subName" />
+        <result column="PROFESSOR" property="professor" />
+        <result column="START_TIME" property="startTime" />
+        <result column="END_TIME" property="endTime" />
+        <result column="SUB_TYPE" property="subType" />
+        <result column="SUB_CREDIT" property="subCredit" />
+        <result column="SUB_HOUR" property="subHour" />
+    </resultMap>
+    <select id="getSearch" resultMap="subjectMap">
+        <bind name="p_subCode" value="'%' + _parameter.getSubCode() + '%'" />
+        <bind name="p_subName" value="'%' + _parameter.getSubName() + '%'" />
+        <bind name="p_professor" value="'%' + _parameter.getProfessor() + '%'" />
+        <bind name="p_startTime" value="'%' + _parameter.getStarTime() + '%'" />
+        <bind name="p_endTime" value="'%' + _parameter.EndTime() + '%'" />
+        <bind name="p_subType" value="'%' + _parameter.SubType() + '%'" />
+        <bind name="p_subCredit" value="'%' + _parameter.SubCredit() + '%'" />
+        <bind name="p_subHour" value="'%' + _parameter.SubHour() + '%'" />
+
+
+        SELECT * FROM SUBJECT_INFO
+        <where>
+            <if test="subCode != null">
+                SUB_CODE LIKE #{p_subCode} AND
+            </if>
+            <if test="subName != null">
+                SUB_NAME LIKE #{p_subName} AND
+            </if>
+            <if test="professor != null">
+                PROFESSOR LIKE #{p_professor} AND
+            </if>
+            <if test="startTime != null">
+                START_TIME LIKE #{p_startTime} AND
+            </if>
+            <if test="endTime != null">
+                END_TIME LIKE #{p_endTime} AND
+            </if>
+            <if test="subType != null">
+                SUB_TYPE LIKE #{p_subType} AND
+            </if>
+            <if test="subCredit != null">
+                SUB_CREADIT LIKE #{p_subCredit} AND
+            </if>
+            <if test="subHour != null">
+                SUB_HOUR LIKE #{p_subHour} AND
+            </if>
+
+        </where>
+    </select>
+</mapper>
