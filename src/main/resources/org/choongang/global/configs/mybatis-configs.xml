@@ -6,7 +6,7 @@
     <properties>
         <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
         <property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
-        <property name="username" value="PROJECT2_1"/>
+        <property name="username" value="PROJECT2_2"/>
         <property name="password" value="oracle"/>
     </properties>
     <environments default="dev">
