@@ -1,6 +1,6 @@
 package org.choongang.template;
 
-import org.choongang.global.constants.Menu;
+import org.choongang.global.constants.MainMenu;
 import org.choongang.template.main.MainTpl;
 import org.choongang.template.member.JoinTpl;
 import org.choongang.template.member.LoginTpl;
@@ -12,7 +12,7 @@ import java.util.Map;
 public class Templates {
 
     private static Templates instance;
-    private Map<Menu, Template> tpls;
+    private Map<MainMenu, Template> tpls;
     private Templates(){
         tpls = new HashMap<>();
     }
@@ -23,11 +23,11 @@ public class Templates {
         }
         return instance;
     }
-    public void render(Menu menu){
+    public void render(MainMenu menu){
         System.out.println(find(menu).getTpl());
     }
 
-    public Template find(Menu menu){
+    public Template find(MainMenu menu){
         Template tpl = tpls.get(menu);
         if(tpl != null){
             return tpl;

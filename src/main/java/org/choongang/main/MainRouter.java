@@ -2,8 +2,9 @@ package org.choongang.main;
 
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
+import org.choongang.global.Menu;
 import org.choongang.global.Router;
-import org.choongang.global.constants.Menu;
+import org.choongang.global.constants.MainMenu;
 import org.choongang.main.controllers.MainController;
 import org.choongang.member.controllers.MemberControllerLocator;
 
@@ -20,10 +21,12 @@ public class MainRouter implements Router {
     public void change(Menu menu) {
         ControllerLocator memlocator = MemberControllerLocator.getInstance();
 
+        MainMenu mainMenu = (MainMenu) menu;
         Controller controller = null;
+
         switch(menu){
-            case JOIN: controller = memlocator.find(Menu.JOIN);break;
-            case LOGIN: controller = memlocator.find(Menu.LOGIN);break;
+            case JOIN: controller = memlocator.find(MainMenu.JOIN);break;
+            case LOGIN: controller = memlocator.find(MainMenu.LOGIN);break;
             default: controller = new MainController();
 
         }

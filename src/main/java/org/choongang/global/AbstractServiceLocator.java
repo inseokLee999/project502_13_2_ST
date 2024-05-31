@@ -1,6 +1,6 @@
 package org.choongang.global;
 
-import org.choongang.global.constants.Menu;
+import org.choongang.global.constants.MainMenu;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,7 +8,7 @@ import java.util.Map;
 public class AbstractServiceLocator implements ServiceLocator{
     protected static ServiceLocator instance;
 
-    protected Map<Menu, Service> services;
+    protected Map<MainMenu, Service> services;
 
 
     protected AbstractServiceLocator() {
@@ -16,7 +16,7 @@ public class AbstractServiceLocator implements ServiceLocator{
     }
 
     @Override
-    public Service find(Menu menu) {
+    public Service find(MainMenu menu) {
         return null;
     }
 }

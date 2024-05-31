@@ -3,7 +3,7 @@ package org.choongang.member.controllers;
 import org.choongang.global.AbstractController;
 import org.choongang.global.Router;
 import org.choongang.global.Service;
-import org.choongang.global.constants.Menu;
+import org.choongang.global.constants.MainMenu;
 import org.choongang.main.MainRouter;
 import org.choongang.main.controllers.RequestJoin;
 import org.choongang.member.Services.MemberServiceLocator;
@@ -15,7 +15,7 @@ import org.choongang.template.Templates;
 public class JoinController extends AbstractController {
     @Override
     public void show() {
-        Templates.getInstance().render(Menu.JOIN);
+        Templates.getInstance().render(MainMenu.JOIN);
     }
 
     @Override
@@ -37,15 +37,15 @@ public class JoinController extends AbstractController {
         Router router = MainRouter.getInstance();
         try {
             //회원가입 처리
-            Service service = MemberServiceLocator.getInstance().find(Menu.JOIN);
+            Service service = MemberServiceLocator.getInstance().find(MainMenu.JOIN);
             service.process(form);
 
             //회원가입 성공시 -> 로그인화면 이동
-            router.change(Menu.LOGIN);
+            router.change(MainMenu.LOGIN);
         }catch (RuntimeException e){
             //회원가입 실패시
             System.err.println(e.getMessage());
-            router.change(Menu.JOIN);
+            router.change(MainMenu.JOIN);
         }
     }
 }

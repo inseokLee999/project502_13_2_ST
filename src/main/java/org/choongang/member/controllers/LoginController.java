@@ -3,7 +3,7 @@ package org.choongang.member.controllers;
 import org.choongang.global.AbstractController;
 import org.choongang.global.Router;
 import org.choongang.global.Service;
-import org.choongang.global.constants.Menu;
+import org.choongang.global.constants.MainMenu;
 import org.choongang.main.MainRouter;
 import org.choongang.member.Services.MemberServiceLocator;
 import org.choongang.template.Templates;
@@ -13,7 +13,7 @@ import org.choongang.template.Templates;
 public class LoginController extends AbstractController {
     @Override
     public void show() {
-        Templates.getInstance().render(Menu.LOGIN);
+        Templates.getInstance().render(MainMenu.LOGIN);
     }
 
     @Override
@@ -28,12 +28,12 @@ public class LoginController extends AbstractController {
         //로그인 처리...
         Router router = MainRouter.getInstance();
         try {
-            Service service = MemberServiceLocator.getInstance().find(Menu.LOGIN);
+            Service service = MemberServiceLocator.getInstance().find(MainMenu.LOGIN);
             service.process(form);
-            router.change(Menu.MAIN);//로그인 성공시 -> 메인페이지로 이동
+            router.change(MainMenu.MAIN);//로그인 성공시 -> 메인페이지로 이동
         } catch (RuntimeException e){
             System.err.println(e.getMessage());
-            router.change(Menu.LOGIN);
+            router.change(MainMenu.LOGIN);
         }
         //메인화면으로 돌아가기
     }
