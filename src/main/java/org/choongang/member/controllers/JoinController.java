@@ -6,7 +6,7 @@ import org.choongang.global.Service;
 import org.choongang.global.constants.Menu;
 import org.choongang.main.MainRouter;
 import org.choongang.main.controllers.RequestJoin;
-import org.choongang.member.Services.MemberServiceLocator;
+import org.choongang.member.services.MemberServiceLocator;
 import org.choongang.template.Templates;
 
 /**

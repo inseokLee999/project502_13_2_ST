@@ -1,4 +1,4 @@
-package org.choongang.member.Services;
+package org.choongang.member.services;
 
 import org.choongang.global.AbstractServiceLocator;
 import org.choongang.global.Service;
