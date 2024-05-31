@@ -1,5 +1,6 @@
 package org.choongang.member.controllers;
 
+import org.choongang.attend.AttendController;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.constants.Menu;
@@ -31,6 +32,7 @@ public class MemberControllerLocator implements ControllerLocator {
         }
         switch(menu){
             case JOIN : controller = new JoinController(); break;
+            case ATTEND: controller = new AttendController(); break;
             default : controller = new LoginController();
         }
         controllers.put(menu,controller);

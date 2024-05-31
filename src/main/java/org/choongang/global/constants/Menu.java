@@ -5,5 +5,6 @@ public enum Menu {
     JOIN,//회원가입
     LOGIN,//로그인
     MYPAGE,//마이페이지
+    ATTEND,
 
 }

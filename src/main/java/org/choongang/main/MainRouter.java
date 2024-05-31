@@ -24,6 +24,7 @@ public class MainRouter implements Router {
         switch(menu){
             case JOIN: controller = memlocator.find(Menu.JOIN);break;
             case LOGIN: controller = memlocator.find(Menu.LOGIN);break;
+            case ATTEND:controller = memlocator.find(Menu.ATTEND);break;
             default: controller = new MainController();
 
         }
