@@ -21,8 +21,7 @@ public class Subject {
     private String professor;
     private String startTime;
     private String endTime;
-    private String subType1;
-    private String subType2;
+    private String subType;
     private int subCredit;
     private int subHour;
 }
