@@ -10,4 +10,5 @@ public class RequestJoin {
     private String userPw;
     private String confirmPw;
     private String userNm;
+    private String userType;
 }
