@@ -1,8 +1,8 @@
 package org.choongang.member.controllers;
 
-import org.choongang.global.AbstractController;
-import org.choongang.global.Router;
-import org.choongang.global.Service;
+import org.choongang.after_login_menu.constants.SubMenu;
+import org.choongang.after_login_menu.controllers.After_Login_ControllerLocator;
+import org.choongang.global.*;
 import org.choongang.global.constants.MainMenu;
 import org.choongang.main.MainRouter;
 import org.choongang.member.services.MemberServiceLocator;
@@ -26,15 +26,22 @@ public class LoginController extends AbstractController {
                 .build();
         System.out.println(form);
         //로그인 처리...
-        Router router = MainRouter.getInstance();
-        try {
-            Service service = MemberServiceLocator.getInstance().find(MainMenu.LOGIN);
-            service.process(form);
-            router.change(MainMenu.MAIN);//로그인 성공시 -> 메인페이지로 이동
-        } catch (RuntimeException e){
-            System.err.println(e.getMessage());
-            router.change(MainMenu.LOGIN);
+       // Router router = MainRouter.getInstance();
+        ControllerLocator lo = MemberControllerLocator.getInstance();
+        Controller controller = lo.find(SubMenu.SUBMAIN);
+
+        if(controller != null){
+            controller.run();
         }
+//        try {
+////            Service service = MemberServiceLocator.getInstance().find(MainMenu.LOGIN);
+////            service.process(form);
+//            //router.change(SubMenu.SUBMAIN);//로그인 성공시 -> 메인페이지로 이동
+//
+//        } catch (RuntimeException e){
+//            System.err.println(e.getMessage());
+//            router.change(MainMenu.LOGIN);
+//        }
         //메인화면으로 돌아가기
     }
 }

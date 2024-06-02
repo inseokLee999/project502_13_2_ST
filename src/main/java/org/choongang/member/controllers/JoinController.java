@@ -24,6 +24,8 @@ public class JoinController extends AbstractController {
     @Override
     public void prompt() {
 
+
+
         while (true) {
             /**
              * 아이디 :
@@ -63,7 +65,7 @@ public class JoinController extends AbstractController {
                     .userPw(userPw)
                     .confirmPw(confirmPw)
                     .userNm(userNm)
-                    .userNm(userType)
+                    .userType(userType)
                     .build();
             Router router = MainRouter.getInstance();
             try {
@@ -78,6 +80,7 @@ public class JoinController extends AbstractController {
                 System.err.println(e.getMessage());
                 router.change(MainMenu.JOIN);
             }
+
         }
     }
 }
