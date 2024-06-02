@@ -7,7 +7,7 @@ import lombok.Data;
 @Builder
 public class Attend {
     private long attendCode;
-    private String sutdentName;
+    private String studentName;
     private String department;
     private String studentId;
     private String oneWeek;

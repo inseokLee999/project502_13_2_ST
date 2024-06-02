@@ -5,7 +5,7 @@
 <mapper namespace="org.choongang.attend.mapper.AttendMapper">
     <resultMap id="attendMap" type="org.choongang.attend.entities.Attend">
         <result column="ATTEND_CODE" property="attendCode" />
-        <result column="STUDENT_NAME" property="sutdentName" />
+        <result column="STUDENT_NAME" property="studentName" />
         <result column="DEPARTMENT" property="department" />
         <result column="STUDENT_ID" property="studentId" />
         <result column="ONE_WEEK" property="oneWeek" />
@@ -17,5 +17,8 @@
         <result column="SEVEN_WEEK" property="sevenWeek" />
     </resultMap>
 
+    <select id="getList" resultMap="attendMap">
+        SELECT * FROM ATTEND
+    </select>
 
 </mapper>
