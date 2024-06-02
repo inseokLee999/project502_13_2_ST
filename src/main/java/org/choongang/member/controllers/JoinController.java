@@ -45,7 +45,10 @@ public class JoinController extends AbstractController {
 
             if (type.equals("2")) {
                 // 관리자에 필요한 항목 추가
-                List<String> codes = Arrays.asList("code1", "code2", "code3");
+
+
+
+                List<String> codes = Arrays.asList("3839371751", "0423150898", "6814117237");
                 String verification = promptWithValidation("관리자 승인코드 : ", s -> !s.isBlank());
 
                 if (!codes.contains(verification)) {
