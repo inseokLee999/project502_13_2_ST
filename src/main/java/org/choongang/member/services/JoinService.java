@@ -1,7 +1,7 @@
 package org.choongang.member.services;
 
 import org.choongang.global.Service;
-import org.choongang.main.controllers.RequestJoin;
+import org.choongang.member.controllers.RequestJoin;
 import org.choongang.member.mapper.MemberMapper;
 import org.choongang.member.validators.JoinValidator;
 

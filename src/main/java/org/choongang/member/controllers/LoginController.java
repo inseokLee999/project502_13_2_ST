@@ -1,11 +1,8 @@
 package org.choongang.member.controllers;
 
-import org.choongang.after_login_menu.constants.SubMenu;
-import org.choongang.after_login_menu.controllers.After_Login_ControllerLocator;
+import org.choongang.AfterLoginMenu.constants.SubMenu;
 import org.choongang.global.*;
 import org.choongang.global.constants.MainMenu;
-import org.choongang.main.MainRouter;
-import org.choongang.member.services.MemberServiceLocator;
 import org.choongang.template.Templates;
 /**
  * 로그인 컨트롤러
@@ -25,7 +22,7 @@ public class LoginController extends AbstractController {
                 .userPw(userPw)
                 .build();
         System.out.println(form);
-        //로그인 처리...
+        //로그인 처리코드 짜야함
        // Router router = MainRouter.getInstance();
         ControllerLocator lo = MemberControllerLocator.getInstance();
         Controller controller = lo.find(SubMenu.SUBMAIN);
@@ -36,7 +33,7 @@ public class LoginController extends AbstractController {
 //        try {
 ////            Service service = MemberServiceLocator.getInstance().find(MainMenu.LOGIN);
 ////            service.process(form);
-//            //router.change(SubMenu.SUBMAIN);//로그인 성공시 -> 메인페이지로 이동
+//              router.change(SubMenu.SUBMAIN);//로그인 성공시 -> 메인페이지로 이동
 //
 //        } catch (RuntimeException e){
 //            System.err.println(e.getMessage());

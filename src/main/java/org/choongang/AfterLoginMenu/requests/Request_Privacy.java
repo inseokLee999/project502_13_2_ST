@@ -1,4 +1,4 @@
-package org.choongang.after_login_menu.controllers;
+package org.choongang.AfterLoginMenu.requests;
 
 import lombok.Builder;
 import lombok.Data;
@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 @Builder
 
-public class Request_Privarcy {
+public class Request_Privacy {
     private String num;
 
 }
