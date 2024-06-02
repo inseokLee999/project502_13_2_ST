@@ -22,5 +22,6 @@
     </environments>
     <mappers>
         <mapper resource="org/choongang/member/mapper/MemberMapper.xml"/>
+        <mapper resource="org/choongang/attend/mapper/AttendMapper.xml"/>
     </mappers>
 </configuration>
