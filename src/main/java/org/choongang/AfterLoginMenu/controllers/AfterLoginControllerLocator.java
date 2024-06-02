@@ -1,19 +1,19 @@
-package org.choongang.after_login_menu.controllers;
+package org.choongang.AfterLoginMenu.controllers;
 
-import org.choongang.after_login_menu.constants.SubMenu;
+import org.choongang.AfterLoginMenu.constants.SubMenu;
 import org.choongang.global.AbstractControllerLocator;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.Menu;
-import org.choongang.member.controllers.JoinController;
+import org.choongang.main.controllers.MainController;
 
-public class After_Login_ControllerLocator extends AbstractControllerLocator {
+public class AfterLoginControllerLocator extends AbstractControllerLocator {
     private static ControllerLocator instance;
-    private After_Login_ControllerLocator(){}
+    private AfterLoginControllerLocator(){}
 
     public static ControllerLocator getInstance(){
         if (instance == null){
-            instance = new After_Login_ControllerLocator();
+            instance = new AfterLoginControllerLocator();
         }
         return instance;
     }
@@ -29,21 +29,21 @@ public class After_Login_ControllerLocator extends AbstractControllerLocator {
             SubMenu subMenu = (SubMenu) menu;
             switch(subMenu){
                 case SUBJECT:
-                    controller = new Subject_Imformation_Controller();
+                    controller = new SubjectInfoController();
                     break;
                 case ATTEND:
-                    controller = new Attend_Controller();
+                    controller = new AttendController();
                     break;
-                case PRIVARCY:
-                    controller = new Privarcy_Controller();
+                case PRIVACY:
+                    controller = new PrivacyController();
                     break;
                 case SUBMAIN:
-                    controller = new After_LoginController();
+                    controller = new AfterLoginController();
                     break;
-
+                case LOGOUT:
+                    controller = new MainController();
+                    break;
             }
-        }else{//선택화면
-            controller = new After_LoginController();
         }
         controllers.put(menu,controller);
         return controller;

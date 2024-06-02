@@ -1,15 +1,12 @@
-package org.choongang.after_login_menu.controllers;
+package org.choongang.AfterLoginMenu.controllers;
 
-import org.choongang.after_login_menu.constants.SubMenu;
+import org.choongang.AfterLoginMenu.constants.SubMenu;
 import org.choongang.global.AbstractController;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
-import org.choongang.global.Router;
-import org.choongang.global.constants.MainMenu;
-import org.choongang.main.MainRouter;
 import org.choongang.template.Templates;
 
-public class Subject_Imformation_Controller extends AbstractController {
+public class SubjectInfoController extends AbstractController {
 
     @Override
     public void show() {
@@ -27,21 +24,23 @@ public class Subject_Imformation_Controller extends AbstractController {
                     System.out.println(m);
                     change(m);
                     break;
+                }else{
+                    throw new Exception();
                 }
             } catch (Exception e) {
-                e.printStackTrace();
                 System.err.println("메뉴 1,2,3,4 중에서 선택하세요.");
             }
         }
     }
 
     private void change(int menuNo) {
-        ControllerLocator locator = After_Login_ControllerLocator.getInstance();
+        ControllerLocator locator = AfterLoginControllerLocator.getInstance();
         Controller controller = null;
         switch (menuNo) {
             case 1:
                 controller = locator.find(SubMenu.SUBMAIN); // 수정된 부분: 컨트롤러를 직접 찾음
                 break;
+                // 메뉴 구현 필요
             default:
                 controller = locator.find(SubMenu.SUBJECT);
                 break;

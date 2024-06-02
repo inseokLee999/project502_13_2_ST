@@ -5,7 +5,6 @@ import org.choongang.global.Router;
 import org.choongang.global.Service;
 import org.choongang.global.constants.MainMenu;
 import org.choongang.main.MainRouter;
-import org.choongang.main.controllers.RequestJoin;
 import org.choongang.member.services.MemberServiceLocator;
 import org.choongang.template.Templates;
 
@@ -43,8 +42,6 @@ public class JoinController extends AbstractController {
             });
 
             String userNm = promptWithValidation("사용자 이름 : ", s -> !s.isBlank());
-            String userType = promptWithValidation("사용자 타입(학생 or 관리자) : ", s -> s.equalsIgnoreCase("학생") || s.equalsIgnoreCase("관리자"));
-
             if (type.equals("2")) {
                 // 관리자에 필요한 항목 추가
                 List<String> codes = Arrays.asList("code1", "code2", "code3");
@@ -56,14 +53,16 @@ public class JoinController extends AbstractController {
                 }
 
             }
+            String userType = type.equals("1") ? "학생":"관리자";
 
-            RequestJoin form = RequestJoin.builder()
+                    RequestJoin form = RequestJoin.builder()
                     .userId(userId)
                     .userPw(userPw)
                     .confirmPw(confirmPw)
                     .userNm(userNm)
                     .userType(userType)
                     .build();
+            System.out.println(form);
             Router router = MainRouter.getInstance();
             try {
                 //회원가입 처리

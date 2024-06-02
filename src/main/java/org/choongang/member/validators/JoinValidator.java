@@ -1,5 +1,4 @@
 package org.choongang.member.validators;
-
 import org.choongang.global.validators.Validator;
 import org.choongang.member.controllers.RequestJoin;
 
