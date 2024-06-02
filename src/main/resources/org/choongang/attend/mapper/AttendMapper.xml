@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.choongang.attend.mapper.AttendMapper">
+    <resultMap id="attendMap" type="org.choongang.attend.entities.Attend">
+        <result column="ATTEND_CODE" property="attendCode" />
+        <result column="STUDENT_NAME" property="studentName" />
+        <result column="DEPARTMENT" property="department" />
+        <result column="STUDENT_ID" property="studentId" />
+        <result column="ONE_WEEK" property="oneWeek" />
+        <result column="TWO_WEEK" property="twoWeek" />
+        <result column="THREE_WEEK" property="threeWeek" />
+        <result column="FOUR_WEEK" property="fourWeek" />
+        <result column="FIVE_WEEK" property="fiveWeek" />
+        <result column="SIX_WEEK" property="sixWeek" />
+        <result column="SEVEN_WEEK" property="sevenWeek" />
+    </resultMap>
+
+    <select id="getList" resultMap="attendMap">
+        SELECT * FROM ATTEND
+    </select>
+
+</mapper>

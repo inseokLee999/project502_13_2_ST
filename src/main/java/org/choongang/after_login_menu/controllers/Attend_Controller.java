@@ -1,19 +1,53 @@
 package org.choongang.after_login_menu.controllers;
 
+import org.apache.ibatis.session.SqlSession;
 import org.choongang.after_login_menu.constants.SubMenu;
+import org.choongang.attend.entities.Attend;
+import org.choongang.attend.mapper.AttendMapper;
 import org.choongang.global.AbstractController;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.Router;
+import org.choongang.global.configs.DBConn;
 import org.choongang.global.constants.MainMenu;
 import org.choongang.template.Templates;
+
+import java.util.List;
 
 public class Attend_Controller extends AbstractController {
     Router router = SubRouter.getInstance();
     @Override
     public void show() {
+        SqlSession sqlSession = null;
+        try{
+            sqlSession = DBConn.getSession();
+            AttendMapper attendMapper = sqlSession.getMapper(AttendMapper.class);
+            List<Attend> attendList = attendMapper.getList();
+            for (Attend attend : attendList) {
+                System.out.println("Attend Code: " + attend.getAttendCode());
+                System.out.println("Student Name: " + attend.getStudentName());
+                System.out.println("Department: " + attend.getDepartment());
+                System.out.println("Student ID: " + attend.getStudentId());
+                System.out.println("One Week: " + attend.getOneWeek());
+                System.out.println("Two Week: " + attend.getTwoWeek());
+                System.out.println("Three Week: " + attend.getThreeWeek());
+                System.out.println("Four Week: " + attend.getFourWeek());
+                System.out.println("Five Week: " + attend.getFiveWeek());
+                System.out.println("Six Week: " + attend.getSixWeek());
+                System.out.println("Seven Week: " + attend.getSevenWeek());
+                System.out.println();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (sqlSession != null) {
+                sqlSession.close();
+            }
+        }
         Templates.getInstance().render(SubMenu.ATTEND);
+
     }
+
     @Override
     public void prompt() {
         while (true) {
