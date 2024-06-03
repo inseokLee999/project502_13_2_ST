@@ -25,14 +25,14 @@ public class StuinfoControllerLocator extends AbstractControllerLocator {
     @Override
     public Controller find(Menu menu) {
         Controller controller = controllers.get(menu);
-        if(controller != null){
+        if (controller != null) {
             return controller;
         }
 
         //
-        if(menu instanceof SubMenu){
+        if (menu instanceof StuinfoMenu) {
             StuinfoMenu stuinfoMenu = (StuinfoMenu) menu;
-            switch (stuinfoMenu){
+            switch (stuinfoMenu) {
                 case CREATE:
                     controller = new CreateStuinfoController();
                     break;
@@ -48,7 +48,8 @@ public class StuinfoControllerLocator extends AbstractControllerLocator {
 
             }
         }
-        }
-
+        controllers.put(menu, controller);
+        return controller;
     }
-}
+    }
+
