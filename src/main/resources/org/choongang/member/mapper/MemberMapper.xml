@@ -87,8 +87,8 @@
             SELECT SEQ_MEMBER.NEXTVAL FROM DUAL
         </selectKey>
 
-        INSERT INTO MEMBER (USER_NO, USER_ID, USER_PW, USER_NM)
-        VALUES (#{userNo}, #{userId}, #{userPw}, #{userNm})
+        INSERT INTO MEMBER (USER_NO, USER_ID, USER_PW, USER_NM, USER_TYPE )
+        VALUES (#{userNo}, #{userId}, #{userPw}, #{userNm}, #{userType})
     </insert>
 
     <!-- 회원 정보 수정 -->
@@ -101,6 +101,10 @@
             <if test="userNm != null">
                 USER_NM=#{userNm},
             </if>
+            <if test="userType != null">
+                USER_TYPE=#{userType},
+            </if>
+
             MOD_DT = SYSDATE
         </set>
         WHERE USER_ID=#{userId}
