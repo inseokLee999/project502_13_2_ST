@@ -31,7 +31,7 @@ public class DeleteStuinfoController extends AbstractController {
             }
             try {
                 Service service = StuinfoServiceLocator.getInstance().find(StuInfoMenu.DELETE);
-                service.process(userNo);
+                service.process2(userNo);
                 System.out.println("학생 삭제 완료");
                 router.change(StuInfoMenu.DELETE);
             } catch (RuntimeException e) {
