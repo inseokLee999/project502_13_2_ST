@@ -1,4 +1,4 @@
-package org.choongang.AfterLoginMenu.requests;
+package org.choongang.subject.requests;
 
 import lombok.Builder;
 import lombok.Data;

@@ -16,12 +16,12 @@ SUB_TYPE_2 VARCHAR2(10),
 SUB_CREDIT NUMBER(2),
 SUB_HOUR NUMBER(2)*/
 public class Subject {
-    private long subCode;
+    private int subCode;
     private String subName;
     private String professor;
     private String startTime;
     private String endTime;
     private String subType;
-    private int subCredit;
     private int subHour;
+    private int subCredit;
 }

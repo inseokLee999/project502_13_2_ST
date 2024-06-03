@@ -13,7 +13,7 @@ public class UpdateSubjectService implements Service<Subject> {
 
     @Override
     public void process(Subject subject) {
-        if(mapper.exists(subject)>0){
+        if(mapper.exists(subject.getSubCode())>0){
             mapper.modify(subject);
         }else{
             mapper.register(subject);
