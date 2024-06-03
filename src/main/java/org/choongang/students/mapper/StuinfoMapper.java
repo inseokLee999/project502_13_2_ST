@@ -6,10 +6,10 @@ import java.util.List;
 
 public interface StuinfoMapper {
     List<StuInfo> getList();
-    StuInfo get(long userNo);
+    List<StuInfo> get(long userNo);
     int register(StuInfo stuinfo);
     int delete(long userNo);
     int modify(StuInfo stuinfo);
-    int exists(StuInfo stuinfo);
+    int exists(long userNo);
 }
 
