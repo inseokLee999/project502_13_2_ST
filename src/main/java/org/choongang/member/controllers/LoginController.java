@@ -22,22 +22,18 @@ public class LoginController extends AbstractController {
     public void prompt() {
         String userId = promptWithValidation("아이디 : ", s -> !s.isBlank());
         String userPw = promptWithValidation("비밀번호 : ",s -> !s.isBlank());
-        while(true) {
-            String type = promptWithValidation("학생 / 관리자", s -> {
-                boolean chk = s.equals("학생") || s.equals("관리자");
-                if (!chk) {
-                    System.err.println("학생이나 관리자 중에 입력하세요");
-                }
-                return !s.isBlank();
-            });
-
-            break;
-        }
-        UserType userType = type.equals("1") ? UserType.STUDENT:UserType.ADMIN;
+        String type = promptWithValidation("학생 / 관리자 : ", s -> {
+            boolean chk = s.equals("학생") || s.equals("관리자");
+            if (!chk) {
+                System.err.println("학생이나 관리자 중에 입력하세요");
+            }
+            return !s.isBlank();
+        });
+        UserType userType = type.equals("학생") ? UserType.STUDENT:UserType.ADMIN;
         RequestLogin form = RequestLogin.builder()
                 .userId(userId)
                 .userPw(userPw)
-                .userType()
+                .userType(userType)
                 .build();
         System.out.println(form);
         try{
