@@ -27,7 +27,7 @@ public class JoinController extends AbstractController {
 
 
         while (true) {
-                /**
+            /**
              * 아이디 :
              * 비밀번호 :
              * ...
