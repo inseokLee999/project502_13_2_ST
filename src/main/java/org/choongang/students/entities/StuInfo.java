@@ -8,7 +8,7 @@ import java.util.Date;
 @Data
 @Builder
 public class StuInfo {
-    private long userNo;
+    private int userNo;
     private int grade;
     private String gender;
     private String semester;
