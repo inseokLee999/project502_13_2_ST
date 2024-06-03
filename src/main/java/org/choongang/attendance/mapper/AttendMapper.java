@@ -4,7 +4,9 @@ import org.choongang.attend.entities.Attend;
 
 import java.util.List;
 
-public interface AttendMapper {
+public interface
+
+AttendMapper {
     List<Attend> getList();
     List<Attend> getByStudentName(String studentName);
 }
