@@ -5,6 +5,7 @@ import org.choongang.global.Router;
 import org.choongang.global.Service;
 import org.choongang.global.constants.MainMenu;
 import org.choongang.main.MainRouter;
+import org.choongang.member.constants.UserType;
 import org.choongang.member.services.MemberServiceLocator;
 import org.choongang.template.Templates;
 
@@ -53,7 +54,7 @@ public class JoinController extends AbstractController {
                 }
 
             }
-            String userType = type.equals("1") ? "학생":"관리자";
+            UserType userType = type.equals("1") ? UserType.STUDENT:UserType.ADMIN;
 
                     RequestJoin form = RequestJoin.builder()
                     .userId(userId)
