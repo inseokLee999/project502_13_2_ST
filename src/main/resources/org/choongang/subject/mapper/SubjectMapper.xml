@@ -18,7 +18,7 @@
         SELECT * FROM SUBJECT_INFO
             <where>
                 <if test="subName != null">
-                    SUB_NAME = #{suName}
+                    SUB_CODE = #{subCode}
                 </if>
             </where>
     </select>
