@@ -31,7 +31,7 @@ public class MemberServiceLocator extends AbstractServiceLocator{
     }
 
     public LoginValidator loginValidator() {
-        return new LoginValidator();
+        return new LoginValidator(memberMapper());
     }
 
     @Override
