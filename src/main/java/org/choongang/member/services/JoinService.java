@@ -6,6 +6,7 @@ import org.choongang.member.controllers.RequestJoin;
 import org.choongang.member.entities.Member;
 import org.choongang.member.mapper.MemberMapper;
 import org.choongang.member.validators.JoinValidator;
+import org.mindrot.jbcrypt.BCrypt;
 
 public class JoinService implements Service<RequestJoin> {
 
@@ -27,9 +28,12 @@ public class JoinService implements Service<RequestJoin> {
     public void process(RequestJoin form) {
         System.out.println("회원가입 처리 실행");
         joinValidator.check(form);
+
+        String hash = BCrypt.hashpw(form.getUserPw(), BCrypt.gensalt(12));
+
         Member member = Member.builder()
                 .userId(form.getUserId())
-                .userPw(form.getUserPw())
+                .userPw(hash)
                 .userNm(form.getUserNm())
                 .userType(form.getUserType())
                 .build();
