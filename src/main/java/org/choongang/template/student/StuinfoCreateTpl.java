@@ -13,5 +13,5 @@ public class StuinfoCreateTpl implements Template {
         return sb.toString();
     }
     }
-}
+
 
