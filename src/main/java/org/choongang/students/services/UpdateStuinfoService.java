@@ -19,7 +19,7 @@ public class UpdateStuinfoService implements Service<StuInfo> {
         if(mapper.exists(stuinfo.getUserNo())>0){
             mapper.modify(stuinfo);
         }else{
-            mapper.register(stuinfo);
+            throw new RuntimeException();
         }
     }
 }
