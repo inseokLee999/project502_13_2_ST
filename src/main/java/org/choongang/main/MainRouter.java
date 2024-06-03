@@ -9,6 +9,8 @@ import org.choongang.global.Router;
 import org.choongang.global.constants.MainMenu;
 import org.choongang.main.controllers.MainController;
 import org.choongang.member.controllers.MemberControllerLocator;
+import org.choongang.subject.constants.SubjMenu;
+import org.choongang.subject.controllers.SubjectControllerLocator;
 
 public class MainRouter implements Router {
     private static Router instance;
@@ -23,6 +25,8 @@ public class MainRouter implements Router {
     public void change(Menu menu) {
         ControllerLocator memLocator = MemberControllerLocator.getInstance();
         ControllerLocator afterLoginLocator = AfterLoginControllerLocator.getInstance();
+        ControllerLocator subjectLocator =
+                SubjectControllerLocator.getInstance();
         Controller controller = null;
         if(menu instanceof MainMenu) {
             MainMenu mainMenu = (MainMenu) menu;
@@ -50,6 +54,22 @@ public class MainRouter implements Router {
                     break;
                 case PRIVACY:
                     controller = afterLoginLocator.find(SubMenu.PRIVACY);
+                    break;
+            }
+        }else if (menu instanceof SubjMenu){
+            SubjMenu subjMenu = (SubjMenu) menu;
+            switch (subjMenu){
+                case CREATE :
+                    controller = subjectLocator.find(SubjMenu.CREATE);
+                    break;
+                case READ:
+                    controller = subjectLocator.find(SubjMenu.READ);
+                    break;
+                case DELETE:
+                    controller = subjectLocator.find(SubjMenu.DELETE);
+                    break;
+                case UPDATE:
+                    controller = subjectLocator.find(SubjMenu.UPDATE);
                     break;
             }
         }

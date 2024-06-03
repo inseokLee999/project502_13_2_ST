@@ -43,6 +43,7 @@ public abstract class AbstractController implements Controller {
             System.out.println("메뉴를 숫자로 입력하세요.");
         }
     }
+
     /**
      *
      * @param message : 항목메세지
