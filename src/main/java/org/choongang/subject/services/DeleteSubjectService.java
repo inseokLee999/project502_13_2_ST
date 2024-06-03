@@ -4,6 +4,7 @@ import org.choongang.global.Service;
 import org.choongang.subject.entities.Subject;
 import org.choongang.subject.mapper.SubjectMapper;
 
+
 public class DeleteSubjectService implements Service<Subject> {
     private final SubjectMapper mapper;
 
@@ -12,7 +13,10 @@ public class DeleteSubjectService implements Service<Subject> {
     }
 
     @Override
-    public void process(Subject form) {
-        mapper.delete(form.getSubCode());
+    public int process1(int subCode) {
+        if(mapper.exists(subCode)>0){
+            return mapper.delete(subCode);
+        }
+        else throw new RuntimeException();
     }
 }

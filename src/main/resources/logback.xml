@@ -12,5 +12,5 @@
 
     <logger name="org.choongang.member.mapper" level="debug" />
     <logger name="org.choongang.attend.mapper" level="debug"/>
-    <logger name="org.choongang.subject.mapper" level="debug"/>
+    <logger name="org.choongang.subject.mapper" level="info"/>
 </configuration>

@@ -16,7 +16,7 @@ public class UpdateSubjectService implements Service<Subject> {
         if(mapper.exists(subject.getSubCode())>0){
             mapper.modify(subject);
         }else{
-            mapper.register(subject);
+            throw new RuntimeException();
         }
     }
 }
