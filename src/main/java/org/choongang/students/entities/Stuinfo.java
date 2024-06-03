@@ -11,7 +11,7 @@ public class Stuinfo {
     private String gender;
     private String semester;
     private String dept;
-    private int stuCreadit;
+    private int stuCredit;
     private date adYr;
     private String eMail;
     private int tel;
