@@ -1,7 +1,8 @@
-package org.choongang.AfterLoginMenu.controllers;
+package org.choongang.attend.controllers;
 
 import org.apache.ibatis.session.SqlSession;
 import org.choongang.AfterLoginMenu.constants.SubMenu;
+import org.choongang.AfterLoginMenu.controllers.AfterLoginControllerLocator;
 import org.choongang.attend.entities.Attend;
 import org.choongang.attend.mapper.AttendMapper;
 import org.choongang.global.AbstractController;
