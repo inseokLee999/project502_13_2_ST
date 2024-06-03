@@ -1,6 +1,8 @@
 package org.choongang.AfterLoginMenu.controllers;
 
 import org.choongang.AfterLoginMenu.constants.SubMenu;
+import org.choongang.attend.controllers.AttendController;
+import org.choongang.attend.controllers.Attend_ManagerController;
 import org.choongang.global.AbstractControllerLocator;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;

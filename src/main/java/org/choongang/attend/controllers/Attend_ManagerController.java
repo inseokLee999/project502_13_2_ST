@@ -1,7 +1,8 @@
-package org.choongang.AfterLoginMenu.controllers;
+package org.choongang.attend.controllers;
 
 import org.apache.ibatis.session.SqlSession;
 import org.choongang.AfterLoginMenu.constants.SubMenu;
+import org.choongang.AfterLoginMenu.controllers.AfterLoginControllerLocator;
 import org.choongang.attend.entities.Attend;
 import org.choongang.attend.mapper.AttendMapper;
 import org.choongang.global.AbstractController;
@@ -16,8 +17,6 @@ import org.choongang.template.Templates;
 import java.util.List;
 
 public class Attend_ManagerController extends AbstractController {
-    Router router = MainRouter.getInstance();
-    String userId = MemberSession.getInstance().getUserId();
     @Override
     public void show() {
         System.out.print("학생 이름을 입력하세요 : \n");

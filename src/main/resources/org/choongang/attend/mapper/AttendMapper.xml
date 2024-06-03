@@ -16,6 +16,16 @@
         <result column="SIX_WEEK" property="sixWeek" />
         <result column="SEVEN_WEEK" property="sevenWeek" />
     </resultMap>
+    <insert id="register">
+        <selectKey keyProperty="subCode" order="BEFORE" resultType="long">
+            SELECT SEQ_SUBJECT.NEXTVAL FROM DUAL
+        </selectKey>
+        INSERT INTO SUBJECT_INFO (SUB_CODE, SUB_NAME, PROFESSOR, START_TIME,END_TIME,SUB_TYPE,SUB_CREDIT,SUB_HOUR)
+        VALUES( SEQ_SUBJECT.NEXTVAL,#{subName},#{professor},#{startTime},#{endTime},#{subType},#{subCredit},#{subHour});
+    </insert>
+    <update id="modify">
+
+    </update>
 
     <select id="getList" resultMap="attendMap">
         SELECT * FROM ATTEND
@@ -23,7 +33,9 @@
     <select id="getByStudentName" resultMap="attendMap">
         SELECT * FROM ATTEND
         WHERE STUDENT_NAME = #{studentName}
-
     </select>
+    <delete id="delete">
+        DELETE FROM ATTEND WHERE STUDENT_NAME= #{studentName}
+    </delete>
 
 </mapper>
