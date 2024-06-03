@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface SubjectMapper {
     List<Subject> getList();
-    List<Subject> get(long subCode);
+    List<Subject> get(int subCode);
     int register(Subject subject);
-    int delete(long subCode);
+    int delete(int subCode);
     int modify(Subject subject);
-    int exists(Subject subject);
+    int exists(int subCode);
 }

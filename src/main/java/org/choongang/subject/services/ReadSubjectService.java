@@ -15,6 +15,9 @@ public class ReadSubjectService implements Service<Subject> {
 
     @Override
     public List<Subject> process(int subCode) {
-        return mapper.get(subCode);
+        if(mapper.exists(subCode)>0){
+            return mapper.get(subCode);
+        }
+        return null;
     }
 }
