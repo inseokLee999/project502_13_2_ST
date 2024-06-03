@@ -1,11 +1,18 @@
 package org.choongang.member;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.choongang.member.constants.UserType;
 import org.choongang.member.entities.Member;
 
 public class MemberSession {
     private static MemberSession instance;
+    @Setter
+    @Getter
     private String userId;
+    @Setter
+    @Getter
+    private UserType userType;
     private static Member member;
 
     private MemberSession(){}
@@ -15,8 +22,7 @@ public class MemberSession {
         }
         return instance;
     }
-    public String getUserId(){ return userId;}
-    public void setUserId(String userId) { this.userId =userId;}
+
     /**
      * 로그인은 회원 정보를 애플리케이션 전역에 유지하면 되므로
      * DB에서 조회된 member를 정적 변수 member에 할당
@@ -53,7 +59,7 @@ public class MemberSession {
         }
 
         UserType type = getMember().getUserType();
-
+        System.out.println(type);
         return type == UserType.ADMIN;
     }
 }

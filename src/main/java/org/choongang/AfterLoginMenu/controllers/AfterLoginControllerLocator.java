@@ -1,8 +1,6 @@
 package org.choongang.AfterLoginMenu.controllers;
 
 import org.choongang.AfterLoginMenu.constants.SubMenu;
-import org.choongang.attend.controllers.AttendController;
-import org.choongang.attend.controllers.Attend_ManagerController;
 import org.choongang.global.AbstractControllerLocator;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
@@ -38,7 +36,7 @@ AfterLoginControllerLocator extends AbstractControllerLocator {
                     controller = new SubjectInfoController();
                     break;
                 case ATTEND:
-                    controller = new AttendController();
+                    controller = new AttendInfoController();
                     break;
                 case PRIVACY:
                     controller = new PrivacyController();
@@ -48,9 +46,6 @@ AfterLoginControllerLocator extends AbstractControllerLocator {
                     break;
                 case LOGOUT:
                     controller = new MainController();
-                    break;
-                case ATTENDMANAGER:
-                    controller = new Attend_ManagerController();
                     break;
             }
         }
