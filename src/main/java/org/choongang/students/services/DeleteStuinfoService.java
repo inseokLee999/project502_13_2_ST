@@ -18,6 +18,7 @@ public class DeleteStuinfoService implements Service<StuInfo> {
         if (mapper.exists(userNo) > 0) {
             return mapper.delete(userNo);
         } else throw new RuntimeException();
+        return 0;
     }
 }
 
