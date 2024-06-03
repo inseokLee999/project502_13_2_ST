@@ -2,14 +2,14 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-   <mapper namespace="org.choongang.students.mapper.StuinfoMapper" />
-        <resultMap id="studentMap" type="org.choongang.students.entities.Stuinfo">
+   <mapper namespace="org.choongang.students.mapper.StuinfoMapper">
+        <resultMap id="stuinfoMap" type="org.choongang.students.entities.Stuinfo">
             <result column="USER_NO" property="userNo"/>
             <result column="GRADE" property="grade"/>
             <result column="GENDER" property="gender"/>
             <result column="SEMESTER" property="semester"/>
             <result column="DEPT" property="dept"/>
-            <result column="STU_CREDIT" property="stuCreadit"/>
+            <result column="STU_CREDIT" property="stuCredit"/>
             <result column="AD_YR" property="adYr"/>
             <result column="E_MAIL" property="eMail"/>
             <result column="TEL" property="tel"/>
@@ -29,40 +29,43 @@ SELECT * FROM STUDENT_INFO
     SELECT SEQ_MEMBER.NEXTVAL FROM DUAL
 </selectKey>
 INSERT INTO STUDENT_INFO (USER_NO, GRADE, GENDER, SEMESTER, DEPT, STU_CREDIT, AD_YR, E_MAIL, TEL)
-VALUES( SEQ_MEMBER.NEXTVAL,#{grade},#{gender},#{semester},#{dept},#{stuCreadit},#{adYr},#{eMail},#{tel});
+VALUES( SEQ_MEMBER.NEXTVAL,#{grade},#{gender},#{semester},#{dept},#{stuCredit},#{adYr},#{eMail},#{tel});
 </insert>
 
 <update id="modify">
 UPDATE STUDENT_INFO
 <set>
-    <if test="subName!=null">
-        SUB_NAME=#{subName},
+    <if test="grade!=null">
+        GRADE=#{grade},
     </if>
-    <if test="professor!=null">
-        PROFESSOR=#{professor},
+    <if test="gender!=null">
+        GENDER=#{gender},
     </if>
-    <if test="startTime!=null">
-        START_TIME=#{startTime},
+    <if test="semester!=null">
+        SEMESTER=#{semester},
     </if>
-    <if test="endTime!=null">
-        END_TIME=#{endTime},
+    <if test="dept!=null">
+        DEPT=#{dept},
     </if>
-    <if test="subType!=null">
-        SUB_TYPE=#{subType},
-    </if>
-    <if test="subCredit!=null">
+    <if test="stuCredit!=null">
         SUB_CREDIT=#{subCredit},
     </if>
-    <if test="subHour!=null">
-        SUB_HOUR=#{subHour},
+    <if test="adYr!=null">
+        AD_YR=#{adYr},
+    </if>
+    <if test="eMail!=null">
+        E_MAIL=#{eMail},
+    </if>
+    <if test="tel!=null">
+        TEL=#{tel},
     </if>
 </set>
-WHERE SUB_CODE=#{subCode}
+WHERE USER_NO=#{userNo}
 </update>
 
-<delete>
+<delete id="delete">
+DELETE FROM MEMBER WHERE USER_NO=#{userNo}
 </delete>
-
-    </mapper>
+</mapper>
 
 
