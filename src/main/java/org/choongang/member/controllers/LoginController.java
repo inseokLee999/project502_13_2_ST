@@ -4,7 +4,7 @@ import org.choongang.AfterLoginMenu.constants.SubMenu;
 import org.choongang.global.*;
 import org.choongang.global.constants.MainMenu;
 import org.choongang.main.MainRouter;
-import org.choongang.member.UserSession;
+import org.choongang.member.MemberSession;
 import org.choongang.member.services.MemberServiceLocator;
 import org.choongang.template.Templates;
 /**
@@ -31,7 +31,7 @@ public class LoginController extends AbstractController {
             Service service = MemberServiceLocator.getInstance().find(MainMenu.LOGIN);
             service.process(form);
             System.out.println("로그인 성공!");
-            UserSession.getInstance().setUserId(userId);
+            MemberSession.getInstance().setUserId(userId);
             router.change(SubMenu.SUBMAIN);
 
         }catch (RuntimeException e){

@@ -3,10 +3,7 @@ package org.choongang.template;
 import org.choongang.AfterLoginMenu.constants.SubMenu;
 import org.choongang.global.Menu;
 import org.choongang.global.constants.MainMenu;
-import org.choongang.template.after_login_menu.After_Login_Tpl;
-import org.choongang.template.after_login_menu.Attend_Tpl;
-import org.choongang.template.after_login_menu.Privarcy_Tpl;
-import org.choongang.template.after_login_menu.Subject_Imformation_Tpl;
+import org.choongang.template.after_login_menu.*;
 import org.choongang.template.main.MainTpl;
 import org.choongang.template.member.JoinTpl;
 import org.choongang.template.member.LoginTpl;
@@ -56,6 +53,9 @@ public class Templates {
         } else if (menu instanceof SubMenu) {
             SubMenu subMenu = (SubMenu)menu;
             switch (subMenu){
+                case ATTENDMANAGER:
+                    tpl = new Attend_Manager_Tpl();
+                    break;
                 case SUBMAIN:
                     tpl = new After_Login_Tpl();
                     break;

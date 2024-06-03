@@ -42,7 +42,7 @@ public class AfterLoginController extends AbstractController {
                 MemberSession.logout();
                 controller = locator.find(SubMenu.LOGOUT);break;
             case 1: controller = locator.find(SubMenu.SUBJECT); break;
-            case 2: controller = locator.find(SubMenu.ATTEND); break;
+            case 2: controller = locator.find(SubMenu.ATTENDMANAGER); break;
             case 3: controller = locator.find(SubMenu.PRIVACY); break;
             default:
                 MainRouter.getInstance().change(SubMenu.SUBMAIN);
