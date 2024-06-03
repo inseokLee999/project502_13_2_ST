@@ -12,7 +12,7 @@ public class Stuinfo {
     private String semester;
     private String dept;
     private int stuCreadit;
-    private date adYr;
+    private Date adYr;
     private String eMail;
     private int tel;
 
