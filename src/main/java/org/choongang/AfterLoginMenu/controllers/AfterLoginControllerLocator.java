@@ -47,6 +47,9 @@ AfterLoginControllerLocator extends AbstractControllerLocator {
                 case LOGOUT:
                     controller = new MainController();
                     break;
+                case ATTENDMANAGER:
+                    controller = new Attend_ManagerController();
+                    break;
             }
         }
         controllers.put(menu,controller);
