@@ -1,7 +1,7 @@
-package org.choongang.after_login_menu.controllers;
+package org.choongang.AfterLoginMenu.controllers;
 
 import org.apache.ibatis.session.SqlSession;
-import org.choongang.after_login_menu.constants.SubMenu;
+import org.choongang.AfterLoginMenu.constants.SubMenu;
 import org.choongang.attend.entities.Attend;
 import org.choongang.attend.mapper.AttendMapper;
 import org.choongang.global.AbstractController;
@@ -9,13 +9,13 @@ import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.Router;
 import org.choongang.global.configs.DBConn;
-import org.choongang.global.constants.MainMenu;
+import org.choongang.main.MainRouter;
 import org.choongang.template.Templates;
 
 import java.util.List;
 
-public class Attend_Controller extends AbstractController {
-    Router router = SubRouter.getInstance();
+public class AttendController extends AbstractController {
+    Router router = MainRouter.getInstance();
     @Override
     public void show() {
         SqlSession sqlSession = null;
@@ -65,7 +65,7 @@ public class Attend_Controller extends AbstractController {
     }
 
     private void change(int menuNo) {
-        ControllerLocator locator = After_Login_ControllerLocator.getInstance();
+        ControllerLocator locator = AfterLoginControllerLocator.getInstance();
         Controller controller = null;
         switch (menuNo) {
             case 1:

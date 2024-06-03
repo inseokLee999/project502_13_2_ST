@@ -1,7 +1,7 @@
 package org.choongang.member.controllers;
 
-import org.choongang.after_login_menu.constants.SubMenu;
-import org.choongang.after_login_menu.controllers.After_LoginController;
+import org.choongang.AfterLoginMenu.constants.SubMenu;
+import org.choongang.AfterLoginMenu.controllers.AfterLoginController;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.Menu;
@@ -29,6 +29,7 @@ public class MemberControllerLocator implements ControllerLocator {
     @Override
     public Controller find(Menu menu) {
         Controller controller = controllers.get(menu);
+
         if(controller != null){
             return controller;
         }
@@ -43,7 +44,7 @@ public class MemberControllerLocator implements ControllerLocator {
                 default : controller = new LoginController();
             }
         }else if(menu instanceof SubMenu){
-            controller = new After_LoginController();
+            controller = new AfterLoginController();
 
         }
         controllers.put(menu,controller);

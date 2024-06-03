@@ -1,6 +1,6 @@
 package org.choongang.template;
 
-import org.choongang.after_login_menu.constants.SubMenu;
+import org.choongang.AfterLoginMenu.constants.SubMenu;
 import org.choongang.global.Menu;
 import org.choongang.global.constants.MainMenu;
 import org.choongang.template.after_login_menu.After_Login_Tpl;
@@ -62,7 +62,7 @@ public class Templates {
                 case ATTEND:
                     tpl = new Attend_Tpl();
                     break;
-                case PRIVARCY:
+                case PRIVACY:
                     tpl = new Privarcy_Tpl();
                     break;
                 case SUBJECT:

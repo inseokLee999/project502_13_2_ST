@@ -1,8 +1,7 @@
-package org.choongang.after_login_menu.controllers;
+package org.choongang.AfterLoginMenu.requests;
 
 import lombok.Builder;
 import lombok.Data;
-import org.choongang.global.Router;
 
 @Data
 @Builder

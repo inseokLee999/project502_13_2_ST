@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.choongang.subject.mapper.SubjectMapper">
+    <resultMap id="subjectMap" type="org.choongang.subject.entities.Subject">
+        <result column="SUB_CODE" property="subCode"/>
+        <result column="SUB_NAME" property="subName"/>
+        <result column="PROFESSOR" property="professor"/>
+        <result column="START_TIME" property="startTime"/>
+        <result column="END_TIME" property="endTime"/>
+        <result column="SUB_TYPE" property="subType1"/>
+        <result column="SUB_CREDIT" property="subCredit"/>
+        <result column="SUB_HOUR" property="subHour"/>
+    </resultMap>
+    <!--과목 개별 조회-->
+    <select id="get" resultType="subjectMap">
+        SELECT * FFROM SUBJECT_INFO
+            <where>
+                <if test="subName != null">
+                    SUB_NAME = #{suName}
+                </if>
+            </where>
+    </select>
+    <!--새로운 과목 등록-->
+    <insert id="register">
+        <selectKey keyProperty="subCode" order="BEFORE" resultType="long">
+            SELECT SEQ_SUBJECT.NEXTVAL FROM DUAL
+        </selectKey>
+        INSERT INTO SUBJECT_INFO (SUB_CODE, SUB_NAME, PROFESSOR, START_TIME,END_TIME,SUB_TYPE,SUB_CREDIT,SUB_HOUR)
+        VALUES( SEQ_SUBJECT.NEXTVAL,#{subName},#{professor},#{startTime},#{endTime},#{subType},#{subCredit},#{subHour});
+    </insert>
+    <update id="modify">
+        UPDATE SUBJECT_INFO
+    </update>
+</mapper>

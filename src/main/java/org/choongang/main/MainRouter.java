@@ -1,5 +1,7 @@
 package org.choongang.main;
 
+import org.choongang.AfterLoginMenu.constants.SubMenu;
+import org.choongang.AfterLoginMenu.controllers.AfterLoginControllerLocator;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.Menu;
@@ -19,16 +21,37 @@ public class MainRouter implements Router {
     }
     @Override
     public void change(Menu menu) {
-        ControllerLocator memlocator = MemberControllerLocator.getInstance();
-
-        MainMenu mainMenu = (MainMenu) menu;
+        ControllerLocator memLocator = MemberControllerLocator.getInstance();
+        ControllerLocator afterLoginLocator = AfterLoginControllerLocator.getInstance();
         Controller controller = null;
-
-        switch(mainMenu){
-            case JOIN: controller = memlocator.find(MainMenu.JOIN);break;
-            case LOGIN: controller = memlocator.find(MainMenu.LOGIN);break;
-            default: controller = new MainController();
-
+        if(menu instanceof MainMenu) {
+            MainMenu mainMenu = (MainMenu) menu;
+            switch (mainMenu) {
+                case JOIN:
+                    controller = memLocator.find(MainMenu.JOIN);
+                    break;
+                case LOGIN:
+                    controller = memLocator.find(MainMenu.LOGIN);
+                    break;
+                default:
+                    controller = new MainController();
+            }
+        } else if (menu instanceof SubMenu) {
+            SubMenu subMenu = (SubMenu) menu;
+            switch (subMenu) {
+                case SUBJECT:
+                    controller = afterLoginLocator.find(SubMenu.SUBJECT);
+                    break;
+                case SUBMAIN:
+                    controller = afterLoginLocator.find(SubMenu.SUBMAIN);
+                    break;
+                case ATTEND:
+                    controller = afterLoginLocator.find(SubMenu.ATTEND);
+                    break;
+                case PRIVACY:
+                    controller = afterLoginLocator.find(SubMenu.PRIVACY);
+                    break;
+            }
         }
         controller.run();
     }
