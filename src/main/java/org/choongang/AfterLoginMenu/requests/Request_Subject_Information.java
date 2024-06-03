@@ -6,6 +6,6 @@ import lombok.Data;
 @Data
 @Builder
 
-public class Request_Subject_Imformation {
+public class Request_Subject_Information {
     private String num;
 }
