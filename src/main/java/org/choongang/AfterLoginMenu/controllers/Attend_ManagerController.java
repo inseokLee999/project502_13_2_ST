@@ -15,21 +15,23 @@ import org.choongang.template.Templates;
 
 import java.util.List;
 
-public class AttendController extends AbstractController {
+public class Attend_ManagerController extends AbstractController {
     Router router = MainRouter.getInstance();
     String userId = MemberSession.getInstance().getUserId();
     @Override
     public void show() {
+        System.out.print("학생 이름을 입력하세요 : \n");
+        String studentName = sc.nextLine();
         SqlSession sqlSession = null;
         try{
             sqlSession = DBConn.getSession();
             AttendMapper attendMapper = sqlSession.getMapper(AttendMapper.class);
             List<Attend> attendList = attendMapper.getList();
-            for (Attend attend : attendList) {
-               printAttend(attend);
-            }
-            String studentName = userId;
-            List<Attend> studentAttendList = attendMapper.getByStudentName(studentName);
+            //for (Attend attend : attendList) {
+            //    printAttend(attend);
+            //}
+            String studentSearch = studentName ;
+            List<Attend> studentAttendList = attendMapper.getByStudentName(studentSearch);
             if (studentAttendList != null && !studentAttendList.isEmpty()){
                 for (Attend studentAttend: studentAttendList) {
                     printAttend(studentAttend);
@@ -44,7 +46,7 @@ public class AttendController extends AbstractController {
                 sqlSession.close();
             }
         }
-        Templates.getInstance().render(SubMenu.ATTEND);
+        Templates.getInstance().render(SubMenu.ATTENDMANAGER);
 
     }
     private void printAttend(Attend attend) {
@@ -66,12 +68,11 @@ public class AttendController extends AbstractController {
     @Override
     public void prompt() {
         while (true) {
-            System.out.print("메뉴 선택: ");
             String menu = sc.nextLine();
             try {
                 int m = Integer.parseInt(menu);
-                    change(m);
-                    break;
+                change(m);
+                break;
             } catch (Exception e) {
                 e.printStackTrace();
                 System.err.println("메뉴 1,2,3,4 중에서 선택하세요.");
@@ -85,6 +86,9 @@ public class AttendController extends AbstractController {
         switch (menuNo) {
             case 1:
                 controller = locator.find(SubMenu.SUBMAIN);
+                break;
+            case 2:
+                controller = locator.find(SubMenu.ATTENDMANAGER);
                 break;
             default:
                 controller = locator.find(SubMenu.SUBJECT);

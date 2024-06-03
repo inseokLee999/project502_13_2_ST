@@ -3,8 +3,19 @@ package org.choongang.member;
 import org.choongang.member.entities.Member;
 
 public class MemberSession {
+    private static MemberSession instance;
+    private String userId;
     private static Member member;
 
+    private MemberSession(){}
+    public static MemberSession getInstance(){
+        if(instance == null){
+            instance = new MemberSession();
+        }
+        return instance;
+    }
+    public String getUserId(){ return userId;}
+    public void setUserId(String userId) { this.userId =userId;}
     /**
      * 로그인은 회원 정보를 애플리케이션 전역에 유지하면 되므로
      * DB에서 조회된 member를 정적 변수 member에 할당
