@@ -34,16 +34,16 @@ public class StuinfoControllerLocator extends AbstractControllerLocator {
             StuinfoMenu stuinfoMenu = (StuinfoMenu) menu;
             switch (stuinfoMenu){
                 case CREATE:
-                    controller = new CreateStuController();
+                    controller = new CreateStuinfoController();
                     break;
                 case READ:
-                    controller = new ReadSubjectController();
+                    controller = new ReadStuinfoController();
                     break;
                 case UPDATE:
-//                    controller = new UpdateSubjectController();
+//                    controller = new UpdateStuinfoController();
                     break;
                 case DELETE:
-//                    controller = new DeleteSubjectController();
+//                    controller = new DeleteStuinfoController();
                     break;
 
             }
