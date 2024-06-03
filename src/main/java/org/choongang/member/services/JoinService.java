@@ -31,6 +31,7 @@ public class JoinService implements Service<RequestJoin> {
                 .userId(form.getUserId())
                 .userPw(form.getUserPw())
                 .userNm(form.getUserNm())
+                .userType(form.getUserType())
                 .build();
         System.out.println("회원정보 : "+member.toString());
         int affectedRows = memberMapper.register(member);
