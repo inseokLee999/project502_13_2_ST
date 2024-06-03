@@ -16,7 +16,7 @@ public class UpdateStuinfoService implements Service<StuInfo> {
 
     @Override
     public void process(StuInfo stuinfo) {
-        if(mapper.exists(stuinfo)>0){
+        if(mapper.exists(stuinfo.getUserNo())>0){
             mapper.modify(stuinfo);
         }else{
             mapper.register(stuinfo);

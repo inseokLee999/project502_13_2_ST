@@ -4,6 +4,8 @@ import org.choongang.global.Service;
 import org.choongang.students.entities.StuInfo;
 import org.choongang.students.mapper.StuinfoMapper;
 
+import java.util.List;
+
 
 public class ReadStuinfoService implements Service<StuInfo> {
 
@@ -15,7 +17,7 @@ public class ReadStuinfoService implements Service<StuInfo> {
 
 
     @Override
-    public StuInfo process(long userNo) {
+    public List<StuInfo> process(long userNo) {
         if (mapper.exists(userNo)>0) {
             return mapper.get(userNo);
         }
