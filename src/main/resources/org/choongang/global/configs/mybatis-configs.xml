@@ -8,7 +8,15 @@
         <property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
         <property name="username" value="PROJECT2_2"/>
         <property name="password" value="oracle"/>
+
+        <property name="prod_url" value="jdbc:oracle:thin:@43.200.99.240:1521:XE" />
+        <property name="prod_username" value="PROJECT2_1" />
+        <property name="prod_password" value="oracle" />
+
     </properties>
+
+
+
     <environments default="dev">
         <environment id="dev">
             <transactionManager type="JDBC"/>
@@ -19,10 +27,25 @@
                 <property name="password" value="${password}"/>
             </dataSource>
         </environment>
+
+        <environment id="prod">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${prod_url}"/>
+                <property name="username" value="${prod_username}"/>
+                <property name="password" value="${prod_password}"/>
+            </dataSource>
+        </environment>
+
+
+
+
     </environments>
     <mappers>
         <mapper resource="org/choongang/member/mapper/MemberMapper.xml"/>
         <mapper resource="org/choongang/attend/mapper/AttendMapper.xml"/>
         <mapper resource="org/choongang/subject/mapper/SubjectMapper.xml"/>
+        <mapper resource="org/choongang/subject/mapper/StuinfoMapper.xml"/>
     </mappers>
 </configuration>
