@@ -5,6 +5,7 @@ import org.choongang.global.*;
 import org.choongang.global.constants.MainMenu;
 import org.choongang.main.MainRouter;
 import org.choongang.member.MemberSession;
+import org.choongang.member.constants.UserType;
 import org.choongang.member.services.MemberServiceLocator;
 import org.choongang.template.Templates;
 /**
@@ -21,9 +22,18 @@ public class LoginController extends AbstractController {
     public void prompt() {
         String userId = promptWithValidation("아이디 : ", s -> !s.isBlank());
         String userPw = promptWithValidation("비밀번호 : ",s -> !s.isBlank());
+        String type = promptWithValidation("학생 / 관리자 : ", s -> {
+            boolean chk = s.equals("학생") || s.equals("관리자");
+            if (!chk) {
+                System.err.println("학생이나 관리자 중에 입력하세요");
+            }
+            return !s.isBlank();
+        });
+        UserType userType = type.equals("학생") ? UserType.STUDENT:UserType.ADMIN;
         RequestLogin form = RequestLogin.builder()
                 .userId(userId)
                 .userPw(userPw)
+                .userType(userType)
                 .build();
         System.out.println(form);
         try{

@@ -14,8 +14,10 @@ public class DeleteStuinfoService implements Service<StuInfo> {
     }
 
     @Override
-    public void process(StuInfo form) {
-        mapper.delete(form.getUserNo());
+    public int process2(int userNo) {
+        if (mapper.exists(userNo) > 0) {
+            return mapper.delete(userNo);
+        } else throw new RuntimeException();
     }
 }
 

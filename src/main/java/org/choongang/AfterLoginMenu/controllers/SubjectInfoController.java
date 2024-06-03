@@ -4,6 +4,7 @@ import org.choongang.AfterLoginMenu.constants.SubMenu;
 import org.choongang.global.AbstractController;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
+import org.choongang.member.MemberSession;
 import org.choongang.subject.constants.SubjMenu;
 import org.choongang.subject.controllers.SubjectControllerLocator;
 import org.choongang.template.Templates;
@@ -39,23 +40,32 @@ public class SubjectInfoController extends AbstractController {
         ControllerLocator locator = SubjectControllerLocator.getInstance();
         ControllerLocator locator1 = AfterLoginControllerLocator.getInstance();
         Controller controller = null;
+
         switch (menuNo) {
             case 1:
                 controller = locator1.find(SubMenu.SUBMAIN); // 수정된 부분: 컨트롤러를 직접 찾음
                 break;
             case 2:
-                controller = locator.find(SubjMenu.CREATE);break;
-            case 3:
-                controller = locator.find(SubjMenu.READ);break;
-            case 4:
-                controller = locator.find(SubjMenu.UPDATE);break;
-            case 5:
-                controller = locator.find(SubjMenu.DELETE);break;
-            default:
-                controller = locator.find(SubMenu.SUBJECT);
+                controller = locator.find(SubjMenu.READ);
                 break;
         }
 
+        if (MemberSession.isAdmin()) {
+            switch (menuNo) {
+                case 3:
+                    controller = locator.find(SubjMenu.CREATE);
+                    break;
+                case 4:
+                    controller = locator.find(SubjMenu.UPDATE);
+                    break;
+                case 5:
+                    controller = locator.find(SubjMenu.DELETE);
+                    break;
+                default:
+                    controller = locator.find(SubMenu.SUBJECT);
+                    break;
+            }
+        }
         if (controller != null) {
             controller.run();
         }

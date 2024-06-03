@@ -4,6 +4,7 @@ import org.choongang.AfterLoginMenu.constants.SubMenu;
 import org.choongang.attend.constants.AttendMenu;
 import org.choongang.global.Menu;
 import org.choongang.global.constants.MainMenu;
+import org.choongang.students.constants.StuInfoMenu;
 import org.choongang.subject.constants.SubjMenu;
 import org.choongang.template.after_login_menu.*;
 import org.choongang.template.attend.AttendCreateTpl;
@@ -14,6 +15,8 @@ import org.choongang.template.main.MainTpl;
 import org.choongang.template.member.JoinTpl;
 import org.choongang.template.member.LoginTpl;
 import org.choongang.template.member.MypageTpl;
+import org.choongang.template.student.StuinfoCreateTpl;
+import org.choongang.template.student.StuinfoReadTpl;
 import org.choongang.template.subject.SubjectCreateTpl;
 import org.choongang.template.subject.SubjectDeleteTpl;
 import org.choongang.template.subject.SubjectReadTpl;
@@ -110,6 +113,22 @@ public class Templates {
                     break;
                 case DELETE:
                     tpl = new AttendDeleteTpl();
+                    break;
+            }
+        }else if (menu instanceof StuInfoMenu) {
+            StuInfoMenu stuinfoMenu = (StuInfoMenu) menu;
+            switch (stuinfoMenu){
+                case CREATE :
+                    tpl = new StuinfoCreateTpl();
+                    break;
+                case READ:
+                    tpl = new StuinfoReadTpl();
+                    break;
+                case UPDATE:
+                    tpl = new StuinfoCreateTpl();
+                    break;
+                case DELETE:
+                    tpl = new StuinfoCreateTpl();
                     break;
             }
         }
