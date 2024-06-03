@@ -36,10 +36,10 @@ public class StuinfoControllerLocator extends AbstractControllerLocator {
                     controller = new ReadStuinfoController();
                     break;
                 case UPDATE:
-//                    controller = new UpdateStuinfoController();
+                   controller = new UpdateStuinfoController();
                     break;
                 case DELETE:
-//                    controller = new DeleteStuinfoController();
+                   controller = new DeleteStuinfoController();
                     break;
 
             }
