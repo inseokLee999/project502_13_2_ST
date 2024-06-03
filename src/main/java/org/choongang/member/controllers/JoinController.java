@@ -48,7 +48,7 @@ public class JoinController extends AbstractController {
 
 
 
-                List<String> codes = Arrays.asList("3839371751", "0423150898", "6814117237");
+                List<String> codes = Arrays.asList("code1", "code2", "code3");
                 String verification = promptWithValidation("관리자 승인코드 : ", s -> !s.isBlank());
 
                 if (!codes.contains(verification)) {
