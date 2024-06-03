@@ -35,10 +35,10 @@ public class SubjectControllerLocator extends AbstractControllerLocator {
                     controller = new ReadSubjectController();
                     break;
                 case UPDATE:
-//                    controller = new UpdateSubjectController();
+                    controller = new UpdateSubjectController();
                     break;
                 case DELETE:
-//                    controller = new DeleteSubjectController();
+                    controller = new DeleteSubjectController();
                     break;
 
             }
