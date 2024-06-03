@@ -8,7 +8,11 @@ public class Subject_Imformation_Tpl implements Template {
     public String getTpl() {
         StringBuffer sb = new StringBuffer(1000);
         sb.append("과목정보입니다.\n");
-        sb.append("이전화면으로 돌아가려면 1번을 눌러주세요");
+        sb.append("1. 이전 화면\n");
+        sb.append("2. 과목 추가\n");
+        sb.append("3. 과목 조회\n");
+        sb.append("4. 과목 수정\n");
+        sb.append("5. 과목 삭제\n");
         return sb.toString();
     }
 }

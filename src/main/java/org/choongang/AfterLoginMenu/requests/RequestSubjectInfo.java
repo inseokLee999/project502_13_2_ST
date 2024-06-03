@@ -5,7 +5,6 @@ import lombok.Data;
 
 @Data
 @Builder
-
-public class Request_Subject_Imformation {
-    private String num;
+public class RequestSubjectInfo {
+    private int subCode;
 }

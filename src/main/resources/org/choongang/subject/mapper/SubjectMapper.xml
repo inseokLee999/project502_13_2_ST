@@ -9,18 +9,22 @@
         <result column="PROFESSOR" property="professor"/>
         <result column="START_TIME" property="startTime"/>
         <result column="END_TIME" property="endTime"/>
-        <result column="SUB_TYPE" property="subType1"/>
+        <result column="SUB_TYPE" property="subType"/>
         <result column="SUB_CREDIT" property="subCredit"/>
         <result column="SUB_HOUR" property="subHour"/>
     </resultMap>
     <!--과목 개별 조회-->
-    <select id="get" resultType="subjectMap">
-        SELECT * FFROM SUBJECT_INFO
+    <select id="get" resultMap="subjectMap">
+        SELECT * FROM SUBJECT_INFO
             <where>
                 <if test="subName != null">
-                    SUB_NAME = #{suName}
+                    SUB_CODE = #{subCode}
                 </if>
             </where>
+    </select>
+    <!--전체 과목조회-->
+    <select id="getList" resultMap="subjectMap">
+        SELECT * FROM SUBJECT_INFO
     </select>
     <!--새로운 과목 등록-->
     <insert id="register">
@@ -30,7 +34,36 @@
         INSERT INTO SUBJECT_INFO (SUB_CODE, SUB_NAME, PROFESSOR, START_TIME,END_TIME,SUB_TYPE,SUB_CREDIT,SUB_HOUR)
         VALUES( SEQ_SUBJECT.NEXTVAL,#{subName},#{professor},#{startTime},#{endTime},#{subType},#{subCredit},#{subHour});
     </insert>
+    <!--과목 수정-->
     <update id="modify">
         UPDATE SUBJECT_INFO
+        <set>
+            <if test="subName!=null">
+                SUB_NAME=#{subName},
+            </if>
+            <if test="professor!=null">
+                PROFESSOR=#{professor},
+            </if>
+            <if test="startTime!=null">
+                START_TIME=#{startTime},
+            </if>
+            <if test="endTime!=null">
+                END_TIME=#{endTime},
+            </if>
+            <if test="subType!=null">
+                SUB_TYPE=#{subType},
+            </if>
+            <if test="subCredit!=null">
+                SUB_CREDIT=#{subCredit},
+            </if>
+            <if test="subHour!=null">
+                SUB_HOUR=#{subHour},
+            </if>
+        </set>
+        WHERE SUB_CODE=#{subCode}
     </update>
+    <!--과목 삭제-->
+    <delete id="delete">
+        DELETE FROM MEMBER WHERE SUB_CODE=#{subCode}
+    </delete>
 </mapper>

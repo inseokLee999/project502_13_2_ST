@@ -7,7 +7,11 @@ import org.choongang.global.ControllerLocator;
 import org.choongang.global.Menu;
 import org.choongang.main.controllers.MainController;
 
-public class AfterLoginControllerLocator extends AbstractControllerLocator {
+public class
+
+
+
+AfterLoginControllerLocator extends AbstractControllerLocator {
     private static ControllerLocator instance;
     private AfterLoginControllerLocator(){}
 
@@ -42,6 +46,9 @@ public class AfterLoginControllerLocator extends AbstractControllerLocator {
                     break;
                 case LOGOUT:
                     controller = new MainController();
+                    break;
+                case ATTENDMANAGER:
+                    controller = new Attend_ManagerController();
                     break;
             }
         }
