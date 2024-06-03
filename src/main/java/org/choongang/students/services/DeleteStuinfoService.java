@@ -1,11 +1,11 @@
 package org.choongang.students.services;
 
 import org.choongang.global.Service;
-import org.choongang.students.entities.Stuinfo;
+import org.choongang.students.entities.StuInfo;
 import org.choongang.students.mapper.StuinfoMapper;
 
 
-public class DeleteStuinfoService implements Service<Stuinfo> {
+public class DeleteStuinfoService implements Service<StuInfo> {
 
     private final StuinfoMapper mapper;
 
@@ -14,7 +14,7 @@ public class DeleteStuinfoService implements Service<Stuinfo> {
     }
 
     @Override
-    public void process(Stuinfo form) {
+    public void process(StuInfo form) {
         mapper.delete(form.getUserNo());
     }
 }

@@ -6,10 +6,7 @@ import org.choongang.global.Router;
 import org.choongang.global.Service;
 import org.choongang.main.MainRouter;
 import org.choongang.students.constants.StuinfoMenu;
-import org.choongang.students.entities.Stuinfo;
-import org.choongang.students.services.StuinfoServiceLocator;
 import org.choongang.subject.constants.SubjMenu;
-import org.choongang.subject.entities.Subject;
 import org.choongang.subject.services.SubjectServiceLocator;
 import org.choongang.template.Templates;
 

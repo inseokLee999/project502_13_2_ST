@@ -1,11 +1,11 @@
 package org.choongang.students.services;
 
 import org.choongang.global.Service;
-import org.choongang.students.entities.Stuinfo;
+import org.choongang.students.entities.StuInfo;
 import org.choongang.students.mapper.StuinfoMapper;
 
 
-public class ReadStuinfoService implements Service<Stuinfo> {
+public class ReadStuinfoService implements Service<StuInfo> {
 
     private final StuinfoMapper mapper;
 
@@ -15,7 +15,7 @@ public class ReadStuinfoService implements Service<Stuinfo> {
 
 
     @Override
-    public Stuinfo process(long userNo) {
+    public StuInfo process(long userNo) {
         return mapper.get(userNo);
     }
 }

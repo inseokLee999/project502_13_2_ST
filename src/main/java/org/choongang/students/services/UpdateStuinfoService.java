@@ -1,12 +1,12 @@
 package org.choongang.students.services;
 
 import org.choongang.global.Service;
-import org.choongang.students.entities.Stuinfo;
+import org.choongang.students.entities.StuInfo;
 import org.choongang.students.mapper.StuinfoMapper;
 
 
 
-public class UpdateStuinfoService implements Service<Stuinfo> {
+public class UpdateStuinfoService implements Service<StuInfo> {
 
     private final StuinfoMapper mapper;
 
@@ -15,7 +15,7 @@ public class UpdateStuinfoService implements Service<Stuinfo> {
     }
 
     @Override
-    public void process(Stuinfo stuinfo) {
+    public void process(StuInfo stuinfo) {
         if(mapper.exists(stuinfo)>0){
             mapper.modify(stuinfo);
         }else{

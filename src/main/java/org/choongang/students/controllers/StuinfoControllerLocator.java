@@ -5,11 +5,8 @@ import org.choongang.global.AbstractControllerLocator;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.Menu;
-import org.choongang.students.constants.StuinfoMenu;
-import org.choongang.students.entities.Stuinfo;
-import org.choongang.subject.controllers.CreateSubjectController;
-import org.choongang.subject.controllers.ReadSubjectController;
-import org.choongang.subject.controllers.SubjectControllerLocator;
+import org.choongang.students.constants.StuInfoMenu;
+
 
 public class StuinfoControllerLocator extends AbstractControllerLocator {
     private static ControllerLocator instance;
@@ -30,8 +27,8 @@ public class StuinfoControllerLocator extends AbstractControllerLocator {
         }
 
         //
-        if (menu instanceof StuinfoMenu) {
-            StuinfoMenu stuinfoMenu = (StuinfoMenu) menu;
+        if (menu instanceof StuInfoMenu) {
+            StuInfoMenu stuinfoMenu = (StuInfoMenu) menu;
             switch (stuinfoMenu) {
                 case CREATE:
                     controller = new CreateStuinfoController();
