@@ -22,7 +22,7 @@ public class UpdateStuinfoController extends AbstractController {
             while (true) {
                 String userNoStr = promptWithValidation("수정할 학생의 학번을 입력하세요 (종료 입력 시 종료) : ", s -> {
                     if (s.equals("종료")) {
-                        router.change(SubMenu.STUINFO);
+                        router.change(SubMenu.PRIVACY);
                         return false;
                     }
                     return !s.isBlank();
