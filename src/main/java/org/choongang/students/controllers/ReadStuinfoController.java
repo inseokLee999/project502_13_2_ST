@@ -5,10 +5,11 @@ import org.choongang.global.AbstractController;
 import org.choongang.global.Router;
 import org.choongang.global.Service;
 import org.choongang.main.MainRouter;
-import org.choongang.students.constants.StuInfoMenu;
-
+import org.choongang.students.constants.StuinfoMenu;
+import org.choongang.students.entities.Stuinfo;
+import org.choongang.students.services.StuinfoServiceLocator;
 import org.choongang.subject.constants.SubjMenu;
-
+import org.choongang.subject.entities.Subject;
 import org.choongang.subject.services.SubjectServiceLocator;
 import org.choongang.template.Templates;
 
@@ -31,7 +32,7 @@ public class ReadStuinfoController extends AbstractController {
             int subCode = Integer.parseInt(str);
 
             try {
-                Service service = SubjectServiceLocator.getInstance().find(StuInfoMenu.READ);
+                Service service = SubjectServiceLocator.getInstance().find(StuinfoMenu.READ);
                 List subject = service.process(subCode);
                 String sub = subject.stream()
                         .map(r->String.format("과목 이름 : %s, 교수 이름 : %s, 수업시작 시간 : %s, 수업종료 시간 :%s, 과목타입 : %s, 시간/학점 : %d/%d",r.getSubName(),r.getProfessor(),r.getStartTime(),r.getEndTime(),r.getSubType(),r.getSubHour(),r.getSubCode())).collect(Collectors.joining("\n"));
