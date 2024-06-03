@@ -1,7 +1,6 @@
 package org.choongang.students.mapper;
 
 import org.choongang.students.entities.Stuinfo;
-import org.choongang.subject.entities.Subject;
 
 import java.util.List;
 

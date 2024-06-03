@@ -24,6 +24,8 @@ SELECT * FROM STUDENT_INFO
 </where>
 </select>
 
+
+
 <insert id="register">
 <selectKey keyProperty="userNo" order="BEFORE" resultType="long">
     SELECT SEQ_MEMBER.NEXTVAL FROM DUAL
