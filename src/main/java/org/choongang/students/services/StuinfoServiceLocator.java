@@ -6,9 +6,8 @@ import org.choongang.global.Menu;
 import org.choongang.global.Service;
 import org.choongang.global.ServiceLocator;
 import org.choongang.global.configs.DBConn;
-import org.choongang.students.mapper.StuInfoMapper;
+import org.choongang.students.mapper.StuinfoMapper;
 import org.choongang.subject.constants.SubjMenu;
-import org.choongang.subject.mapper.SubjectMapper;
 import org.choongang.subject.services.*;
 
 public class StuinfoServiceLocator extends AbstractServiceLocator {
@@ -20,8 +19,8 @@ public class StuinfoServiceLocator extends AbstractServiceLocator {
         }
         return instance;
     }
-    public StuInfoMapper stuinfoMapper(){
-        return DBConn.getSession().getMapper(StuInfoMapper.class);
+    public StuinfoMapper stuinfoMapper(){
+        return DBConn.getSession().getMapper(StuinfoMapper.class);
     }
 
     @Override
