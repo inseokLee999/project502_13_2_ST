@@ -15,16 +15,16 @@ public class CreateSubjectController extends AbstractController {
     public void show() {
         Router router = MainRouter.getInstance();
         while (true) {
-            String subName = promptWithValidation("과목 이름(종료 입력 시 종료) : ", s -> {
+            String subName = String.valueOf(promptWithValidation("과목 이름(종료 입력 시 종료) : ", s -> {
                 if (s.equals("종료")) {
                     router.change(SubMenu.SUBJECT);
                     return false;
                 }
                 return !s.isBlank();
-            });
-            String professor = promptWithValidation("교수(님) 이름 : ", s -> !s.isBlank());
-            String startTime = promptWithValidation("수업 시작 시간 : ", s -> !s.isBlank());
-            String endTime = promptWithValidation("수업 종료 시간 : ", s -> !s.isBlank());
+            }));
+            String professor = String.valueOf(promptWithValidation("교수(님) 이름 : ", s -> !s.isBlank()));
+            String startTime = String.valueOf(promptWithValidation("수업 시작 시간 : ", s -> !s.isBlank()));
+            String endTime = String.valueOf(promptWithValidation("수업 종료 시간 : ", s -> !s.isBlank()));
             String subType = promptWithValidation("과목 타입 (전공,교양): ", s -> {
                 boolean chksubType = s.equals("전공") || s.equals("교양");
                 if (!chksubType) System.err.println("전공/교양 중에 입력해주세요");
