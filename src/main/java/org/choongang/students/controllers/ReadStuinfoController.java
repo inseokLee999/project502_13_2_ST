@@ -29,6 +29,7 @@ public class ReadStuinfoController extends AbstractController {
             int subCode = Integer.parseInt(str);
 
             try {
+
                 Service service = SubjectServiceLocator.getInstance().find(StuinfoMenu.READ);
                 List subject = service.process(subCode);
                 String sub = subject.stream()
@@ -37,6 +38,7 @@ public class ReadStuinfoController extends AbstractController {
                 Templates.getInstance().render(SubjMenu.READ,()->sub);
                 System.out.println("과목 조회 성공");
                 router.change(SubjMenu.READ);
+              
                 break;
             }catch (RuntimeException e){
                 e.printStackTrace();
