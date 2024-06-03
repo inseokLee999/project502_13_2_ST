@@ -16,26 +16,69 @@
         <result column="SIX_WEEK" property="sixWeek" />
         <result column="SEVEN_WEEK" property="sevenWeek" />
     </resultMap>
-    <insert id="register">
-        <selectKey keyProperty="subCode" order="BEFORE" resultType="long">
-            SELECT SEQ_SUBJECT.NEXTVAL FROM DUAL
-        </selectKey>
-        INSERT INTO SUBJECT_INFO (SUB_CODE, SUB_NAME, PROFESSOR, START_TIME,END_TIME,SUB_TYPE,SUB_CREDIT,SUB_HOUR)
-        VALUES( SEQ_SUBJECT.NEXTVAL,#{subName},#{professor},#{startTime},#{endTime},#{subType},#{subCredit},#{subHour});
-    </insert>
-    <update id="modify">
-
-    </update>
-
+    <select id="get" resultMap="attendMap">
+        SELECT * FROM ATTEND
+        <where>
+            <if test="attendCode != null">
+                ATTEND_CODE = #{attendCode}
+            </if>
+        </where>
+    </select>
     <select id="getList" resultMap="attendMap">
         SELECT * FROM ATTEND
     </select>
+    <insert id="register">
+        <selectKey keyProperty="attendCode" order="BEFORE" resultType="int">
+            SELECT SEQ_ATTEND.NEXTVAL FROM DUAL
+        </selectKey>
+        INSERT INTO ATTEND (ATTEND_CODE, STUDENT_NAME, DEPARTMENT, STUDENT_ID,ONE_WEEK,TWO_WEEK,THREE_WEEK,FOUR_WEEK,FIVE_WEEK,SIX_WEEK,SEVEN_WEEK)
+        VALUES( SEQ_ATTEND.NEXTVAL,#{studentName},#{department},#{studentId},#{oneWeek},#{twoWeek},#{threeWeek},#{fourWeek},#{fiveWeek},#{sixWeek},#{sevenWeek})
+    </insert>
+    <update id="modify">
+        UPDATE ATTEND
+        <set>
+            <if test="studentName!=null">
+                STUDENT_NAME=#{studentName},
+            </if>
+            <if test="department!=null">
+                DEPARTMENT=#{department},
+            </if>
+            <if test="studentId!=null">
+                STUDENT_ID=#{studentId},
+            </if>
+            <if test="oneWeek!=null">
+                ONE_WEEK=#{oneWeek},
+            </if>
+            <if test="twoWeek!=null">
+                TWO_WEEK=#{twoWeek},
+            </if>
+            <if test="threeWeek!=null">
+                THREE_WEEK=#{threeWeek},
+            </if>
+            <if test="fourWeek!=null">
+            FOUR_WEEK=#{fourWeek},
+            </if>
+            <if test="fiveWeek!=null">
+                FIVE_WEEK=#{fiveWeek},
+            </if>
+            <if test="sixWeek!=null">
+                SIX_WEEK=#{sixWeek},
+            </if>
+            <if test="sevenWeek!=null">
+                SEVEN_WEEK=#{sevenWeek},
+            </if>
+        </set>
+        WHERE ATTEND_CODE =#{attendCode
+    </update>
+
     <select id="getByStudentName" resultMap="attendMap">
         SELECT * FROM ATTEND
         WHERE STUDENT_NAME = #{studentName}
     </select>
     <delete id="delete">
-        DELETE FROM ATTEND WHERE STUDENT_NAME= #{studentName}
+        DELETE FROM ATTEND WHERE ATTEND_CODE= #{attendCode}
     </delete>
-
+    <select id="exists"  resultType="int">
+        SELECT COUNT(*) FROM ATTEND WHERE ATTEND_CODE=#{attendCode}
+    </select>
 </mapper>

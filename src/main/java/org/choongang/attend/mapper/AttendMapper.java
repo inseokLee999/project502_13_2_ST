@@ -5,15 +5,12 @@ import org.choongang.subject.entities.Subject;
 
 import java.util.List;
 
-public interface
-
-AttendMapper {
+public interface AttendMapper {
     List<Attend> getList();
-    List<Attend> getByStudentName(String studentName);
-    Attend get(long subCode);
+    List<Attend> get(long attendCode);
     int register(Attend attend);
-    int delete (long subCode);
+    int delete (long attendCode);
     int modify(Attend attend);
-    int exists (Attend attend);
+    int exists (long attendCode);
 
 }

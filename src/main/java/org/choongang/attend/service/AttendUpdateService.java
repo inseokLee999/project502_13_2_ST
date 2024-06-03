@@ -15,7 +15,7 @@ public class AttendUpdateService implements Service<Attend> {
 
     @Override
     public void process(Attend attend) {
-        if(mapper.exists(attend)>0){
+        if(mapper.exists(attend.getAttendCode())>0){
             mapper.modify(attend);
         }else{
             mapper.register(attend);
