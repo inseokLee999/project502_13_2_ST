@@ -1,5 +1,6 @@
 package org.choongang.member;
 
+import org.choongang.member.constants.UserType;
 import org.choongang.member.entities.Member;
 
 public class MemberSession {
@@ -44,5 +45,15 @@ public class MemberSession {
 
     public static Member getMember() {
         return member;
+    }
+
+    public static boolean isAdmin() {
+        if (!isLogin()) {
+            return false;
+        }
+
+        UserType type = getMember().getUserType();
+
+        return type == UserType.ADMIN;
     }
 }

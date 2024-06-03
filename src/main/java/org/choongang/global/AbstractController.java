@@ -50,13 +50,21 @@ public abstract class AbstractController implements Controller {
      * @param predicate : 판별식
      * @return
      */
-    protected Date promptWithValidation(String message, Predicate<String> predicate){
+    protected String promptWithValidation(String message, Predicate<String> predicate){
         String str = null;
         do{
             System.out.print(message);
             str = sc.nextLine();
         }while (!predicate.test(str));
         return str;
+    }
+    protected Date promptWithValidationDate(String message, Predicate<String> predicate){
+        String str = null;
+        do{
+            System.out.print(message);
+            str = sc.nextLine();
+        }while (!predicate.test(str));
+        return new Date(str);
     }
     /**
      * 템플릿 메서드 패턴 : 특정 절차가 고정 되어 있는 경우

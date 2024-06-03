@@ -40,16 +40,16 @@ public class CreateStuinfoController extends AbstractController {
                 if (!chksubType) System.err.println("1학기/2학기/계절학기  중에 입력해주세요");
                 return chksubType;
             }));
-            String dept = String.valueOf(promptWithValidation("학과:경영학과(1),컴퓨터공학과(2),묵찌빠학과(3) ", s -> !s.isBlank() ||
-                    (!s.equals("1") && s.equals("2") && s.equals("3"))));
+            String dept = promptWithValidation("학과:경영학과(1),컴퓨터공학과(2),묵찌빠학과(3) ", s -> !s.isBlank() ||
+                    (!s.equals("1") && s.equals("2") && s.equals("3")));
 
-            String stuCredit = String.valueOf(promptWithValidation("학점 : ", s -> !s.isBlank()));
-            Date adYr = promptWithValidation("입학연도 : ", s -> !s.isBlank());
-            String eMail = String.valueOf(promptWithValidation("이메일 : ", s -> !s.isBlank()));
-            String tel = String.valueOf(promptWithValidation("연락처 : ", s -> !s.isBlank()));
+            String stuCredit = promptWithValidation("학점 : ", s -> !s.isBlank());
+            Date adYr = promptWithValidationDate("입학연도 : ", s -> !s.isBlank());
+            String eMail = promptWithValidation("이메일 : ", s -> !s.isBlank());
+            String tel = promptWithValidation("연락처 : ", s -> !s.isBlank());
 
             StuInfo stuInfo = StuInfo.builder()
-                    .userNo(Long.parseLong(userNo))
+                    .userNo(Integer.parseInt(userNo))
                     .grade(Integer.parseInt(grade))
                     .gender(gender)
                     .semester(semester)

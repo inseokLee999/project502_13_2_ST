@@ -20,8 +20,11 @@ public class SubjectServiceLocator extends AbstractServiceLocator {
         return DBConn.getSession().getMapper(SubjectMapper.class);
     }
 
+
+
     @Override
     public Service find(Menu menu) {
+
         Service service = services.get(menu);
         if(service!= null){
             return service;
@@ -44,7 +47,7 @@ public class SubjectServiceLocator extends AbstractServiceLocator {
                     break;
             }
         }
-        services.put(menu,service);
+       // services.put(menu,service);
         return service;
     }
 }
