@@ -9,7 +9,6 @@ public interface Service<T>{
     default T process(){return null;}
     default void process(T... params){}
 
-    default List<Subject> process(int subCode){return null;};
-
+    default List<T> process(int number){return null;}
     default T process(long userNo){return null;}
 }
