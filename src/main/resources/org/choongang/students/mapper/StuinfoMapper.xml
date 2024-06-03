@@ -27,7 +27,7 @@ SELECT * FROM STUDENT_INFO
 
 
 <insert id="register">
-<selectKey keyProperty="userNo" order="BEFORE" resultType="long">
+<selectKey keyProperty="userNo" order="BEFORE" resultType="int">
     SELECT SEQ_MEMBER.NEXTVAL FROM DUAL
 </selectKey>
 INSERT INTO STUDENT_INFO (USER_NO, GRADE, GENDER, SEMESTER, DEPT, STU_CREDIT, AD_YR, E_MAIL, TEL)
