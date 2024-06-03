@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface AttendMapper {
     List<Attend> getList();
-
+    List<Attend> getByStudentName(String studentName);
 }

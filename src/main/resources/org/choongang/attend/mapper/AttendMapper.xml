@@ -20,5 +20,10 @@
     <select id="getList" resultMap="attendMap">
         SELECT * FROM ATTEND
     </select>
+    <select id="getByStudentName" resultMap="attendMap">
+        SELECT * FROM ATTEND
+        WHERE STUDENT_NAME = #{studentName}
+
+    </select>
 
 </mapper>
