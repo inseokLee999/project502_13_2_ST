@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   <mapper namespace="org.choongang.students.mapper.StuInfoMapper">
+        <resultMap id="stuInfoMap" type="org.choongang.students.entities.StuInfo">
+            <result column="USER_NO" property="userNo"/>
+            <result column="GRADE" property="grade"/>
+            <result column="GENDER" property="gender"/>
+            <result column="SEMESTER" property="semester"/>
+            <result column="DEPT" property="dept"/>
+            <result column="STU_CREDIT" property="stuCredit"/>
+            <result column="AD_YR" property="adYr"/>
+            <result column="E_MAIL" property="eMail"/>
+            <result column="TEL" property="tel"/>
+        </resultMap>
+
+<select id="get" resultMap="stuInfoMap">
+SELECT * FROM STUDENT_INFO
+<where>
+    <if test="userNo != null">
+        USER_NO = #{userNo}
+    </if>
+</where>
+</select>
+
+
+
+<insert id="register">
+<selectKey keyProperty="userNo" order="BEFORE" resultType="long">
+    SELECT SEQ_MEMBER.NEXTVAL FROM DUAL
+</selectKey>
+INSERT INTO STUDENT_INFO (USER_NO, GRADE, GENDER, SEMESTER, DEPT, STU_CREDIT, AD_YR, E_MAIL, TEL)
+VALUES( userNo,#{grade},#{gender},#{semester},#{dept},#{stuCredit},#{adYr},#{eMail},#{tel});
+</insert>
+
+<update id="modify">
+UPDATE STUDENT_INFO
+<set>
+    <if test="grade!=null">
+        GRADE=#{grade},
+    </if>
+    <if test="gender!=null">
+        GENDER=#{gender},
+    </if>
+    <if test="semester!=null">
+        SEMESTER=#{semester},
+    </if>
+    <if test="dept!=null">
+        DEPT=#{dept},
+    </if>
+    <if test="stuCredit!=null">
+        SUB_CREDIT=#{subCredit},
+    </if>
+    <if test="adYr!=null">
+        AD_YR=#{adYr},
+    </if>
+    <if test="eMail!=null">
+        E_MAIL=#{eMail},
+    </if>
+    <if test="tel!=null">
+        TEL=#{tel},
+    </if>
+</set>
+WHERE USER_NO=#{userNo}
+</update>
+
+<delete id="delete">
+DELETE FROM STUDENT_INFO WHERE USER_NO=#{userNo}
+</delete>
+</mapper>
+
+

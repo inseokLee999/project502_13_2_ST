@@ -18,7 +18,7 @@
         SELECT * FROM SUBJECT_INFO
             <where>
                 <if test="subName != null">
-                    SUB_NAME = #{suName}
+                    SUB_CODE = #{subCode}
                 </if>
             </where>
     </select>
@@ -28,11 +28,11 @@
     </select>
     <!--새로운 과목 등록-->
     <insert id="register">
-        <selectKey keyProperty="subCode" order="BEFORE" resultType="long">
+        <selectKey keyProperty="subCode" order="BEFORE" resultType="int">
             SELECT SEQ_SUBJECT.NEXTVAL FROM DUAL
         </selectKey>
         INSERT INTO SUBJECT_INFO (SUB_CODE, SUB_NAME, PROFESSOR, START_TIME,END_TIME,SUB_TYPE,SUB_CREDIT,SUB_HOUR)
-        VALUES( SEQ_SUBJECT.NEXTVAL,#{subName},#{professor},#{startTime},#{endTime},#{subType},#{subCredit},#{subHour});
+        VALUES( #{subCode},#{subName},#{professor},#{startTime},#{endTime},#{subType},#{subCredit},#{subHour})
     </insert>
     <!--과목 수정-->
     <update id="modify">
@@ -64,6 +64,9 @@
     </update>
     <!--과목 삭제-->
     <delete id="delete">
-        DELETE FROM MEMBER WHERE SUB_CODE=#{subCode}
+        DELETE FROM SUBJECT_INFO WHERE SUB_CODE=#{subCode}
     </delete>
+    <select id="exists"  resultType="int">
+        SELECT COUNT(*) FROM SUBJECT_INFO WHERE SUB_CODE=#{subCode}
+    </select>
 </mapper>
