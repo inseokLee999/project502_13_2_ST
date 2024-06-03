@@ -3,6 +3,8 @@ package org.choongang.students.entities;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 @Builder
 public class Stuinfo {
