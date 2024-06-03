@@ -10,12 +10,14 @@ import org.choongang.global.ControllerLocator;
 import org.choongang.global.Router;
 import org.choongang.global.configs.DBConn;
 import org.choongang.main.MainRouter;
+import org.choongang.member.UserSession;
 import org.choongang.template.Templates;
 
 import java.util.List;
 
 public class AttendController extends AbstractController {
     Router router = MainRouter.getInstance();
+    String userId = UserSession.getInstance().getUserId();
     @Override
     public void show() {
         SqlSession sqlSession = null;
@@ -24,18 +26,16 @@ public class AttendController extends AbstractController {
             AttendMapper attendMapper = sqlSession.getMapper(AttendMapper.class);
             List<Attend> attendList = attendMapper.getList();
             for (Attend attend : attendList) {
-                System.out.println("Attend Code: " + attend.getAttendCode());
-                System.out.println("Student Name: " + attend.getStudentName());
-                System.out.println("Department: " + attend.getDepartment());
-                System.out.println("Student ID: " + attend.getStudentId());
-                System.out.println("One Week: " + attend.getOneWeek());
-                System.out.println("Two Week: " + attend.getTwoWeek());
-                System.out.println("Three Week: " + attend.getThreeWeek());
-                System.out.println("Four Week: " + attend.getFourWeek());
-                System.out.println("Five Week: " + attend.getFiveWeek());
-                System.out.println("Six Week: " + attend.getSixWeek());
-                System.out.println("Seven Week: " + attend.getSevenWeek());
-                System.out.println();
+               printAttend(attend);
+            }
+            String studentName = userId;
+            List<Attend> studentAttendList = attendMapper.getByStudentName(studentName);
+            if (studentAttendList != null && !studentAttendList.isEmpty()){
+                for (Attend studentAttend: studentAttendList) {
+                    printAttend(studentAttend);
+                }
+            }else {
+                System.out.println("등록되지않은 사용자입니다");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -47,6 +47,21 @@ public class AttendController extends AbstractController {
         Templates.getInstance().render(SubMenu.ATTEND);
 
     }
+    private void printAttend(Attend attend) {
+        System.out.println("Attend Code: " + attend.getAttendCode());
+        System.out.println("Student Name: " + attend.getStudentName());
+        System.out.println("Department: " + attend.getDepartment());
+        System.out.println("Student ID: " + attend.getStudentId());
+        System.out.println("One Week: " + attend.getOneWeek());
+        System.out.println("Two Week: " + attend.getTwoWeek());
+        System.out.println("Three Week: " + attend.getThreeWeek());
+        System.out.println("Four Week: " + attend.getFourWeek());
+        System.out.println("Five Week: " + attend.getFiveWeek());
+        System.out.println("Six Week: " + attend.getSixWeek());
+        System.out.println("Seven Week: " + attend.getSevenWeek());
+        System.out.println();
+    }
+
 
     @Override
     public void prompt() {
