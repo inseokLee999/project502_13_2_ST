@@ -4,6 +4,7 @@ import org.choongang.global.constants.MainMenu;
 import org.choongang.main.MainRouter;
 import org.choongang.template.Templates;
 
+import java.util.Date;
 import java.util.Scanner;
 import java.util.function.Predicate;
 
@@ -45,12 +46,11 @@ public abstract class AbstractController implements Controller {
     }
 
     /**
-     *
-     * @param message : 항목메세지
+     * @param message   : 항목메세지
      * @param predicate : 판별식
      * @return
      */
-    protected String promptWithValidation(String message, Predicate<String> predicate){
+    protected Date promptWithValidation(String message, Predicate<String> predicate){
         String str = null;
         do{
             System.out.print(message);
