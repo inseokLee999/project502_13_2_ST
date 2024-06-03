@@ -45,9 +45,6 @@ public class JoinController extends AbstractController {
             String userNm = promptWithValidation("사용자 이름 : ", s -> !s.isBlank());
             if (type.equals("2")) {
                 // 관리자에 필요한 항목 추가
-
-
-
                 List<String> codes = Arrays.asList("code1", "code2", "code3");
                 String verification = promptWithValidation("관리자 승인코드 : ", s -> !s.isBlank());
 
