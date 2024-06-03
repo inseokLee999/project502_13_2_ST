@@ -33,8 +33,8 @@ public class ReadStuinfoController extends AbstractController {
                 Service service = StuinfoServiceLocator.getInstance().find(StuinfoMenu.READ);
                 List<Stuinfo> stuinfo = service.process(userNo);
                 String stu = stuinfo.stream()
-                        .map(r->String.format("학년 : %s, 성별 : %s, 학기 : %s, 학과 :%s, 학적 : %s, 입학 년도 : %s, 이메일 : %s, 전화번호 : %s ",r.getGrade(),r.getGender(),r.getSemester(),r.getDept(),r.getStuCredit(),r.getAdYr(),r.getEMail(),r.Tel(),r.UserNo())).collect(Collectors.joining("\n"));
-                //과목 조회 성공시
+                        .map(r->String.format("학년 : %s, 성별 : %s, 학기 : %s, 학과 :%s, 학점 : %d, 입학 년도 : %s, 이메일 : %s, 전화번호 : %d ",r.getGrade(),r.getGender(),r.getSemester(),r.getDept(),r.getStuCredit(),r.getAdYr(),r.getEMail(),r.Tel(),r.UserNo())).collect(Collectors.joining("\n"));
+                //학생 정보 조회 성공시
                 Templates.getInstance().render(StuinfoMenu.READ,()->stu);
                 System.out.println("학생 정보 조회 성공");
                 router.change(StuinfoMenu.READ);
