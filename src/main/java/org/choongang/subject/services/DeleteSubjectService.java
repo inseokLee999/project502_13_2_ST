@@ -8,6 +8,7 @@ import org.choongang.subject.mapper.SubjectMapper;
 public class DeleteSubjectService implements Service<Subject> {
     private final SubjectMapper mapper;
 
+
     public DeleteSubjectService(SubjectMapper mapper) {
         this.mapper = mapper;
     }
