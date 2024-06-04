@@ -9,7 +9,7 @@
         <result column="USER_ID" property="userId" />
         <result column="USER_PW" property="userPw" />
         <result column="USER_NM" property="userNm" />
-        <result column="USER_TYPE" property="userType" typeHandler="org.apache.ibatis.type.EnumTypeHandler"/>
+        <result column="USER_TYPE" property="userType"/>
         <result column="REG_DT" property="regDt" />
         <result column="MOD_DT" property="modDt" />
     </resultMap>
