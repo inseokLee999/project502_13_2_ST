@@ -1,11 +1,9 @@
 package org.choongang.subject.controllers;
 
-import org.choongang.AfterLoginMenu.controllers.*;
 import org.choongang.global.AbstractControllerLocator;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.Menu;
-import org.choongang.main.controllers.MainController;
 import org.choongang.subject.constants.SubjMenu;
 
 public class SubjectControllerLocator extends AbstractControllerLocator {

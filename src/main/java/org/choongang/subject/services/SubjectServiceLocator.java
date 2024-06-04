@@ -47,7 +47,7 @@ public class SubjectServiceLocator extends AbstractServiceLocator {
                     break;
             }
         }
-       // services.put(menu,service);
+        services.put(menu,service);
         return service;
     }
 }

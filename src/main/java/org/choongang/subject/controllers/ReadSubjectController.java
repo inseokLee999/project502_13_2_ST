@@ -18,7 +18,7 @@ public class ReadSubjectController extends AbstractController {
     public void show() {
         Router router = MainRouter.getInstance();
         while(true) {
-            String str = promptWithValidation("과목 코드 (종료 입력 시 종료) : ", s -> {
+            String str = promptWithValidation("읽어올 과목의 코드 (종료 입력 시 종료) : ", s -> {
                 if(s.equals("종료")){
                     router.change(SubMenu.SUBJECT);
                     return false;

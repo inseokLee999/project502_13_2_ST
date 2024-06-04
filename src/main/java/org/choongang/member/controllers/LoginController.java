@@ -48,10 +48,6 @@ public class LoginController extends AbstractController {
             System.out.println("로그인 성공!");
 
             MemberSession.getInstance().setUserId(userId);
-            if(form.getUserType().equals(UserType.ADMIN)){
-                MemberSession.getInstance().setUserType(UserType.ADMIN);
-                System.out.println("userType : "+MemberSession.getInstance().getUserType());
-            }
             router.change(SubMenu.SUBMAIN);
 
         }catch (RuntimeException e){
