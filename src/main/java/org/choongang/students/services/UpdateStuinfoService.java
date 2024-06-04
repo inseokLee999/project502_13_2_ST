@@ -2,15 +2,14 @@ package org.choongang.students.services;
 
 import org.choongang.global.Service;
 import org.choongang.students.entities.StuInfo;
-import org.choongang.students.mapper.StuinfoMapper;
-
+import org.choongang.students.mapper.StuInfoMapper;
 
 
 public class UpdateStuinfoService implements Service<StuInfo> {
 
-    private final StuinfoMapper mapper;
+    private final StuInfoMapper mapper;
 
-    public UpdateStuinfoService(StuinfoMapper mapper) {
+    public UpdateStuinfoService(StuInfoMapper mapper) {
         this.mapper = mapper;
     }
 
