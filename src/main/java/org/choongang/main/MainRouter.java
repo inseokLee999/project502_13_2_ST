@@ -2,6 +2,8 @@ package org.choongang.main;
 
 import org.choongang.AfterLoginMenu.constants.SubMenu;
 import org.choongang.AfterLoginMenu.controllers.AfterLoginControllerLocator;
+import org.choongang.attend.constants.AttendMenu;
+import org.choongang.attend.controllers.AttendControllerLocator;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.Menu;
@@ -27,6 +29,7 @@ public class MainRouter implements Router {
         ControllerLocator afterLoginLocator = AfterLoginControllerLocator.getInstance();
         ControllerLocator subjectLocator =
                 SubjectControllerLocator.getInstance();
+        ControllerLocator attendLocator = AttendControllerLocator.getInstance();
         Controller controller = null;
         if(menu instanceof MainMenu) {
             MainMenu mainMenu = (MainMenu) menu;
@@ -56,7 +59,24 @@ public class MainRouter implements Router {
                     controller = afterLoginLocator.find(SubMenu.PRIVACY);
                     break;
             }
-        }else if (menu instanceof SubjMenu){
+        }else if(menu instanceof AttendMenu){
+            AttendMenu attendMenu = (AttendMenu) menu;
+            switch (attendMenu){
+                case CREATE :
+                    controller = attendLocator.find(AttendMenu.CREATE);
+                    break;
+                case READ:
+                    controller = attendLocator.find(AttendMenu.READ);
+                    break;
+                case DELETE:
+                    controller = attendLocator.find(AttendMenu.DELETE);
+                    break;
+                case UPDATE:
+                    controller = attendLocator.find(AttendMenu.UPDATE);
+                    break;
+            }
+        }
+        else if (menu instanceof SubjMenu){
             SubjMenu subjMenu = (SubjMenu) menu;
             switch (subjMenu){
                 case CREATE :

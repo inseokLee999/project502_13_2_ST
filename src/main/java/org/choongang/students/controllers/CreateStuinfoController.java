@@ -20,7 +20,7 @@ public class CreateStuinfoController extends AbstractController {
         while (true) {
             String userNo = String.valueOf(promptWithValidation("학생 이름(종료 입력 시 종료) : ", s -> {
                 if (s.equals("종료")) {
-                    router.change(SubMenu.STUINFO);
+                    router.change(SubMenu. PRIVACY);
                     return false;
                 }
                 return !s.isBlank();
@@ -40,13 +40,13 @@ public class CreateStuinfoController extends AbstractController {
                 if (!chksubType) System.err.println("1학기/2학기/계절학기  중에 입력해주세요");
                 return chksubType;
             }));
-            String dept = promptWithValidation("학과:경영학과(1),컴퓨터공학과(2),묵찌빠학과(3) ", s -> !s.isBlank() ||
-                    (!s.equals("1") && s.equals("2") && s.equals("3")));
+            String dept = String.valueOf(promptWithValidation("학과:경영학과(1),컴퓨터공학과(2),묵찌빠학과(3) ", s -> !s.isBlank() ||
+                    (!s.equals("1") && s.equals("2") && s.equals("3"))));
 
-            String stuCredit = promptWithValidation("학점 : ", s -> !s.isBlank());
+            String stuCredit = String.valueOf(promptWithValidation("학점 : ", s -> !s.isBlank()));
             Date adYr = promptWithValidationDate("입학연도 : ", s -> !s.isBlank());
-            String eMail = promptWithValidation("이메일 : ", s -> !s.isBlank());
-            String tel = promptWithValidation("연락처 : ", s -> !s.isBlank());
+            String eMail = String.valueOf(promptWithValidation("이메일 : ", s -> !s.isBlank()));
+            String tel = String.valueOf(promptWithValidation("연락처 : ", s -> !s.isBlank()));
 
             StuInfo stuInfo = StuInfo.builder()
                     .userNo(Integer.parseInt(userNo))

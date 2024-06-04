@@ -9,6 +9,6 @@ public enum SubMenu implements Menu {
     SUBMAIN,
     LOGOUT,//로그아웃
     ATTENDMANAGER,
-    STUINFO // 학생정보?
+    STUINFO
 
 }

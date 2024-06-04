@@ -2,20 +2,24 @@ package org.choongang.students.services;
 
 import org.choongang.global.Service;
 import org.choongang.students.entities.StuInfo;
-import org.choongang.students.mapper.StuinfoMapper;
+import org.choongang.students.mapper.StuInfoMapper;
 
 
 public class DeleteStuinfoService implements Service<StuInfo> {
 
-    private final StuinfoMapper mapper;
+    private final StuInfoMapper mapper;
 
-    public DeleteStuinfoService(StuinfoMapper mapper) {
+    public DeleteStuinfoService(StuInfoMapper mapper) {
         this.mapper = mapper;
     }
 
     @Override
-    public void process(StuInfo form) {
-        mapper.delete(form.getUserNo());
+    public int process2(int userNo) {
+        if (mapper.exists(userNo) > 0) {
+            return mapper.delete(userNo);
+        }
+
+        return 0;
     }
 }
 

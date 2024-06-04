@@ -16,12 +16,7 @@
         </resultMap>
 
 <select id="get" resultMap="stuInfoMap">
-SELECT * FROM STUDENT_INFO
-<where>
-    <if test="userNo != null">
-        USER_NO = #{userNo}
-    </if>
-</where>
+SELECT * FROM STUDENT_INFO WHERE USER_NO = #{userNo}
 </select>
 
 

@@ -4,9 +4,9 @@ import org.choongang.students.entities.StuInfo;
 
 import java.util.List;
 
-public interface StuinfoMapper {
+public interface StuInfoMapper {
     List<StuInfo> getList();
-    List<StuInfo> get(int userNo);
+    StuInfo get(int userNo);
     int register(StuInfo stuinfo);
     int delete(int userNo);
     int modify(StuInfo stuinfo);

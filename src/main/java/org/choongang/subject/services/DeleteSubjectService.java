@@ -14,10 +14,11 @@ public class DeleteSubjectService implements Service<Subject> {
     }
 
     @Override
-    public int process1(int subCode) {
+    public int process2(int subCode) {
         if(mapper.exists(subCode)>0){
             return mapper.delete(subCode);
         }
-        else throw new RuntimeException();
+
+        return 0;
     }
 }

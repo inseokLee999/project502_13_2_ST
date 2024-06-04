@@ -32,11 +32,11 @@ public class DeleteSubjectController extends AbstractController {
             }
             try{
                 Service service = SubjectServiceLocator.getInstance().find(SubjMenu.DELETE);
-                service.process1(subCode);
+                service.process(subCode);
                 System.out.println("과목 삭제 성공!");
                 router.change(SubjMenu.DELETE);
             }catch (RuntimeException e){
-                System.err.println("과목 등록 실패ㅠㅠ");
+                System.err.println("과목 삭제 실패ㅠㅠ");
                 System.err.println("과목 정보가 존재 하지 않습니다.");
                 System.out.println();
             }
