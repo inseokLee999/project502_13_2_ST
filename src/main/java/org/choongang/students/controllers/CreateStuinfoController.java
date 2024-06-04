@@ -18,7 +18,7 @@ public class CreateStuinfoController extends AbstractController {
     public void show() {
         Router router = MainRouter.getInstance();
         while (true) {
-            String userNo = String.valueOf(promptWithValidation("추가할 학생 이름(종료 입력 시 종료) : ", s -> {
+            String userNo = String.valueOf(promptWithValidation("추가할 학번(종료 입력 시 종료) : ", s -> {
                 if (s.equals("종료")) {
                     router.change(SubMenu. PRIVACY);
                     return false;
@@ -67,7 +67,6 @@ public class CreateStuinfoController extends AbstractController {
                 router.change(StuInfoMenu.CREATE);
                 break;
             } catch (RuntimeException e) {
-                e.printStackTrace();
                 System.err.println("학생정보 등록 실패");
                 System.out.println();
             }
