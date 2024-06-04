@@ -17,7 +17,7 @@ public class ReadStuinfoService implements Service<StuInfo> {
 
 
     @Override
-    public StuInfo process3(int userNo) {
+    public List<StuInfo> process3(int userNo) {
         if (mapper.exists(userNo)>0) {
             return mapper.get(userNo);
         }

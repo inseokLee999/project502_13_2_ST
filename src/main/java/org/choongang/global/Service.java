@@ -17,7 +17,7 @@ public interface Service<T>{
         return 0;
     }
 
-    default T process3(int userNo) {
+    default List<T> process3(int userNo) {
         return null;
     }
 //    default int process(int subCode){
