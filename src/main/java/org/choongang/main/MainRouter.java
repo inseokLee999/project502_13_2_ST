@@ -11,6 +11,8 @@ import org.choongang.global.Router;
 import org.choongang.global.constants.MainMenu;
 import org.choongang.main.controllers.MainController;
 import org.choongang.member.controllers.MemberControllerLocator;
+import org.choongang.students.constants.StuInfoMenu;
+import org.choongang.students.controllers.StuinfoControllerLocator;
 import org.choongang.subject.constants.SubjMenu;
 import org.choongang.subject.controllers.SubjectControllerLocator;
 
@@ -30,6 +32,7 @@ public class MainRouter implements Router {
         ControllerLocator subjectLocator =
                 SubjectControllerLocator.getInstance();
         ControllerLocator attendLocator = AttendControllerLocator.getInstance();
+        ControllerLocator stuInfoLocator = StuinfoControllerLocator.getInstance();
         Controller controller = null;
         if(menu instanceof MainMenu) {
             MainMenu mainMenu = (MainMenu) menu;
@@ -75,8 +78,7 @@ public class MainRouter implements Router {
                     controller = attendLocator.find(AttendMenu.UPDATE);
                     break;
             }
-        }
-        else if (menu instanceof SubjMenu){
+        }else if (menu instanceof SubjMenu){
             SubjMenu subjMenu = (SubjMenu) menu;
             switch (subjMenu){
                 case CREATE :
@@ -90,6 +92,22 @@ public class MainRouter implements Router {
                     break;
                 case UPDATE:
                     controller = subjectLocator.find(SubjMenu.UPDATE);
+                    break;
+            }
+        }else if (menu instanceof StuInfoMenu){
+            StuInfoMenu stuInfoMenu = (StuInfoMenu) menu;
+            switch (stuInfoMenu){
+                case CREATE :
+                    controller = stuInfoLocator.find(StuInfoMenu.CREATE);
+                    break;
+                case READ:
+                    controller = stuInfoLocator.find(StuInfoMenu.READ);
+                    break;
+                case DELETE:
+                    controller = stuInfoLocator.find(StuInfoMenu.DELETE);
+                    break;
+                case UPDATE:
+                    controller = stuInfoLocator.find(StuInfoMenu.UPDATE);
                     break;
             }
         }

@@ -10,7 +10,7 @@
         <property name="password" value="oracle"/>
 
         <property name="prod_url" value="jdbc:oracle:thin:@43.200.99.240:1521:XE" />
-        <property name="prod_username" value="PROJECT2_1" />
+        <property name="prod_username" value="PROJECT2_2" />
         <property name="prod_password" value="oracle" />
 
     </properties>
