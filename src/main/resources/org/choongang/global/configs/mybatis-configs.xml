@@ -14,8 +14,11 @@
         <property name="prod_password" value="oracle" />
 
     </properties>
-
-
+    <typeHandlers>
+        <typeHandler handler="org.apache.ibatis.type.EnumTypeHandler"
+                     javaType="import java.util.List"
+        />
+    </typeHandlers>
 
     <environments default="dev">
         <environment id="dev">
@@ -46,6 +49,6 @@
         <mapper resource="org/choongang/member/mapper/MemberMapper.xml"/>
         <mapper resource="org/choongang/attend/mapper/AttendMapper.xml"/>
         <mapper resource="org/choongang/subject/mapper/SubjectMapper.xml"/>
-        <mapper resource="org/choongang/subject/mapper/StuinfoMapper.xml"/>
+        <mapper resource="org/choongang/students/mapper/StuInfoMapper.xml"/>
     </mappers>
 </configuration>

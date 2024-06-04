@@ -13,7 +13,11 @@ public interface Service<T>{
     default List<T> attendReadProcess(long attendCode){return  null;}
     default T process(long userNo){return null;}
 
-    default T process2(int userNo) {
+    default int process2(int userNo) {
+        return 0;
+    }
+
+    default T process3(int userNo) {
         return null;
     }
 //    default int process(int subCode){
