@@ -14,7 +14,12 @@ public class AttendDeleteService implements Service<Attend> {
     }
 
     @Override
-    public void process(Attend form) {
+    public int process2(int attendCode) {
+        if(mapper.exists(attendCode)>0){
+            return mapper.delete(attendCode);
+        }
+        return 0;
     }
 }
+
 
