@@ -44,7 +44,7 @@ public class CreateStuinfoController extends AbstractController {
                     (!s.equals("1") && s.equals("2") && s.equals("3"))));
 
             String stuCredit = String.valueOf(promptWithValidation("학점 : ", s -> !s.isBlank()));
-            Date adYr = promptWithValidationDate("입학연도 : ", s -> !s.isBlank());
+            String adYr = promptWithValidation("입학연도 : ", s -> !s.isBlank());
             String eMail = String.valueOf(promptWithValidation("이메일 : ", s -> !s.isBlank()));
             String tel = String.valueOf(promptWithValidation("연락처 : ", s -> !s.isBlank()));
 

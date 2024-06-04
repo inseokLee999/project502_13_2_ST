@@ -14,7 +14,7 @@ public class StuInfo {
     private String semester;
     private String dept;
     private int stuCredit;
-    private Date adYr;
+    private String adYr;
     private String eMail;
     private int tel;
 
