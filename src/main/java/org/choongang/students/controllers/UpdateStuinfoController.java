@@ -39,7 +39,7 @@ public class UpdateStuinfoController extends AbstractController {
             String semester = promptWithValidation("학기: ", s-> s.isBlank());
             String dept = promptWithValidation("학과: ", s-> s.isBlank());
             int stuCredit = Integer.parseInt(promptWithValidation("학점: ", s-> s.isBlank()));
-            Date adYr = promptWithValidationDate("입학년도: ", d-> d.isBlank());
+            String adYr = promptWithValidation("입학년도: ", d-> d.isBlank());
             String eMail = promptWithValidation("이메일: ", s-> s.isBlank());
             int tel = Integer.parseInt(promptWithValidation("전화번호: ", d-> !d.isBlank()));
             StuInfo stuInfo = StuInfo.builder()
