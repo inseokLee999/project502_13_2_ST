@@ -18,7 +18,7 @@ public class CreateStuinfoController extends AbstractController {
     public void show() {
         Router router = MainRouter.getInstance();
         while (true) {
-            String userNo = String.valueOf(promptWithValidation("학생 이름(종료 입력 시 종료) : ", s -> {
+            String userNo = String.valueOf(promptWithValidation("추가할 학생 이름(종료 입력 시 종료) : ", s -> {
                 if (s.equals("종료")) {
                     router.change(SubMenu. PRIVACY);
                     return false;
@@ -26,7 +26,7 @@ public class CreateStuinfoController extends AbstractController {
                 return !s.isBlank();
             }));
             String grade = String.valueOf(promptWithValidation("학년 : ", s -> {
-                boolean chksubType = s.equals(1) || s.equals(2) || s.equals(3) ||s.equals(4);
+                boolean chksubType = s.equals("1") || s.equals("2") || s.equals("3") ||s.equals("4");
                 if (!chksubType) System.err.println("1,2,3,4 중에 입력해주세요");
                 return chksubType;
             }));

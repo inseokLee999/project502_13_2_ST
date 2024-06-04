@@ -22,7 +22,7 @@ public class ReadStuinfoController extends AbstractController {
         while(true) {
             String str = promptWithValidation("학생 정보: ", s -> {
                 if(s.equals("종료")){
-                    router.change(SubMenu.SUBJECT);
+                    router.change(SubMenu.STUINFO);
                     return false;
                 }
                 return !s.isBlank();

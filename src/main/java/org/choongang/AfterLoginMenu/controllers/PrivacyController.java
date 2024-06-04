@@ -6,6 +6,11 @@ import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.Router;
 import org.choongang.main.MainRouter;
+import org.choongang.member.MemberSession;
+import org.choongang.students.constants.StuInfoMenu;
+import org.choongang.students.controllers.StuinfoControllerLocator;
+import org.choongang.subject.constants.SubjMenu;
+import org.choongang.subject.controllers.SubjectControllerLocator;
 import org.choongang.template.Templates;
 
 public class PrivacyController extends AbstractController {
@@ -31,15 +36,40 @@ public class PrivacyController extends AbstractController {
     }
 
     private void change(int menuNo) {
-        ControllerLocator locator = AfterLoginControllerLocator.getInstance();
+        ControllerLocator locator = StuinfoControllerLocator.getInstance();
+        ControllerLocator locator1 = AfterLoginControllerLocator.getInstance();
         Controller controller = null;
-        switch (menuNo) {
-            case 1:
-                controller = locator.find(SubMenu.SUBMAIN);
-                break;
-            default:
-                controller = locator.find(SubMenu.SUBJECT);
-                break;
+        if(!MemberSession.isAdmin()) {
+            switch (menuNo) {
+                case 1:
+                    controller = locator1.find(SubMenu.SUBMAIN); // 수정된 부분: 컨트롤러를 직접 찾음
+                    break;
+                case 2:
+                    controller = locator.find(StuInfoMenu.READ);
+                    break;
+            }
+        }
+        if (MemberSession.isAdmin()) {
+            switch (menuNo) {
+                case 1:
+                    controller = locator1.find(SubMenu.SUBMAIN); // 수정된 부분: 컨트롤러를 직접 찾음
+                    break;
+                case 2:
+                    controller = locator.find(StuInfoMenu.READ);
+                    break;
+                case 3:
+                    controller = locator.find(StuInfoMenu.CREATE);
+                    break;
+                case 4:
+                    controller = locator.find(StuInfoMenu.UPDATE);
+                    break;
+                case 5:
+                    controller = locator.find(StuInfoMenu.DELETE);
+                    break;
+                default:
+                    controller = locator.find(SubMenu.SUBJECT);
+                    break;
+            }
         }
 
         if (controller != null) {

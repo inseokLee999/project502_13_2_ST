@@ -16,7 +16,9 @@ import org.choongang.template.member.JoinTpl;
 import org.choongang.template.member.LoginTpl;
 import org.choongang.template.member.MypageTpl;
 import org.choongang.template.student.StuinfoCreateTpl;
+import org.choongang.template.student.StuinfoDeleteTpl;
 import org.choongang.template.student.StuinfoReadTpl;
+import org.choongang.template.student.StuinfoUpdateTpl;
 import org.choongang.template.subject.SubjectCreateTpl;
 import org.choongang.template.subject.SubjectDeleteTpl;
 import org.choongang.template.subject.SubjectReadTpl;
@@ -125,10 +127,10 @@ public class Templates {
                     tpl = new StuinfoReadTpl();
                     break;
                 case UPDATE:
-                    tpl = new StuinfoCreateTpl();
+                    tpl = new StuinfoUpdateTpl();
                     break;
                 case DELETE:
-                    tpl = new StuinfoCreateTpl();
+                    tpl = new StuinfoDeleteTpl();
                     break;
             }
         }
