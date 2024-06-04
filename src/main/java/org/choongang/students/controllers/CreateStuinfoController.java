@@ -18,7 +18,7 @@ public class CreateStuinfoController extends AbstractController {
     public void show() {
         Router router = MainRouter.getInstance();
         while (true) {
-            String userNo = String.valueOf(promptWithValidation("학생 이름(종료 입력 시 종료) : ", s -> {
+            String userNo = String.valueOf(promptWithValidation("추가할 학번(종료 입력 시 종료) : ", s -> {
                 if (s.equals("종료")) {
                     router.change(SubMenu. PRIVACY);
                     return false;
@@ -26,7 +26,7 @@ public class CreateStuinfoController extends AbstractController {
                 return !s.isBlank();
             }));
             String grade = String.valueOf(promptWithValidation("학년 : ", s -> {
-                boolean chksubType = s.equals(1) || s.equals(2) || s.equals(3) ||s.equals(4);
+                boolean chksubType = s.equals("1") || s.equals("2") || s.equals("3") ||s.equals("4");
                 if (!chksubType) System.err.println("1,2,3,4 중에 입력해주세요");
                 return chksubType;
             }));
@@ -44,7 +44,7 @@ public class CreateStuinfoController extends AbstractController {
                     (!s.equals("1") && s.equals("2") && s.equals("3"))));
 
             String stuCredit = String.valueOf(promptWithValidation("학점 : ", s -> !s.isBlank()));
-            Date adYr = promptWithValidationDate("입학연도 : ", s -> !s.isBlank());
+            String adYr = promptWithValidation("입학연도 : ", s -> !s.isBlank());
             String eMail = String.valueOf(promptWithValidation("이메일 : ", s -> !s.isBlank()));
             String tel = String.valueOf(promptWithValidation("연락처 : ", s -> !s.isBlank()));
 
@@ -67,7 +67,6 @@ public class CreateStuinfoController extends AbstractController {
                 router.change(StuInfoMenu.CREATE);
                 break;
             } catch (RuntimeException e) {
-                e.printStackTrace();
                 System.err.println("학생정보 등록 실패");
                 System.out.println();
             }

@@ -41,7 +41,7 @@ public class SubjectControllerLocator extends AbstractControllerLocator {
 
             }
         }
-        controllers.put(menu,controller);
+//        controllers.put(menu,controller);
         return controller;
     }
 }

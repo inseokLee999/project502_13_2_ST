@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface StuInfoMapper {
     List<StuInfo> getList();
-    StuInfo get(int userNo);
+    List<StuInfo> get(int userNo);
     int register(StuInfo stuinfo);
     int delete(int userNo);
     int modify(StuInfo stuinfo);

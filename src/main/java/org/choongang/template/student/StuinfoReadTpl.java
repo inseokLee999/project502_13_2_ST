@@ -12,7 +12,7 @@ public class StuinfoReadTpl implements Template {
     @Override
     public String getTpl() {
         StringBuffer sb = new StringBuffer(1000);
-        sb.append("학생정보 조회\n");
+        sb.append("학생 정보 조회\n");
         if(hook!=null){
             sb.append(hook.get());
         }
