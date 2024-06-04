@@ -40,18 +40,24 @@ public class SubjectInfoController extends AbstractController {
         ControllerLocator locator = SubjectControllerLocator.getInstance();
         ControllerLocator locator1 = AfterLoginControllerLocator.getInstance();
         Controller controller = null;
-
-        switch (menuNo) {
-            case 1:
-                controller = locator1.find(SubMenu.SUBMAIN); // 수정된 부분: 컨트롤러를 직접 찾음
-                break;
-            case 2:
-                controller = locator.find(SubjMenu.READ);
-                break;
+        if(!MemberSession.isAdmin()) {
+            switch (menuNo) {
+                case 1:
+                    controller = locator1.find(SubMenu.SUBMAIN); // 수정된 부분: 컨트롤러를 직접 찾음
+                    break;
+                case 2:
+                    controller = locator.find(SubjMenu.READ);
+                    break;
+            }
         }
-
         if (MemberSession.isAdmin()) {
             switch (menuNo) {
+                case 1:
+                    controller = locator1.find(SubMenu.SUBMAIN); // 수정된 부분: 컨트롤러를 직접 찾음
+                    break;
+                case 2:
+                    controller = locator.find(SubjMenu.READ);
+                    break;
                 case 3:
                     controller = locator.find(SubjMenu.CREATE);
                     break;

@@ -41,7 +41,7 @@ public class CreateSubjectController extends AbstractController {
                     .subCredit(Integer.parseInt(subCredit))
                     .subHour(Integer.parseInt(subHour))
                     .build();
-            System.out.println("과목 정보 :" + subject);
+            System.out.println("추가할 과목 정보 :" + subject);
             try {
                 Service service = SubjectServiceLocator.getInstance().find(SubjMenu.CREATE);
                 service.process(subject);
